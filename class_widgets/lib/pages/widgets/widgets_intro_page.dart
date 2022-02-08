@@ -1,11 +1,12 @@
 import 'package:class_widgets/components/custom_button.dart';
-import 'package:class_widgets/pages/layout_examples/layout_examples_page.dart';
 import 'package:class_widgets/pages/widgets/componentized_widgets_page.dart';
 import 'package:class_widgets/pages/widgets/inherited_widget_page.dart';
-import 'package:class_widgets/pages/widgets/sandbox_page.dart';
 import 'package:class_widgets/pages/widgets/render_object_page.dart';
+import 'package:class_widgets/pages/widgets/sandbox_page.dart';
 import 'package:class_widgets/pages/widgets/stateful_widget_lifecycle_page.dart';
 import 'package:flutter/material.dart';
+
+import 'layout_examples/layout_examples_page.dart';
 
 class WidgetsIntroPage extends StatefulWidget {
   const WidgetsIntroPage({Key? key}) : super(key: key);

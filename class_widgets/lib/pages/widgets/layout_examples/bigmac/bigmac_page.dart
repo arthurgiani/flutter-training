@@ -20,13 +20,10 @@ class BigMacPage extends StatelessWidget {
       body: Column(
         crossAxisAlignment: CrossAxisAlignment.stretch,
         children: [
-          const Text(
+          Text(
             'Big Mac',
             textAlign: TextAlign.center,
-            style: TextStyle(
-              color: Colors.white,
-              fontSize: 18,
-            ),
+            style: Theme.of(context).textTheme.subtitle1,
           ),
           const SizedBox(height: 48),
           Image.asset(
@@ -39,70 +36,65 @@ class BigMacPage extends StatelessWidget {
             style: TextStyle(
               color: Colors.white,
               fontSize: 18,
+              fontFamily: 'Monument-Extended',
             ),
           ),
           const SizedBox(height: 46),
           Padding(
             padding: const EdgeInsets.only(left: 52, right: 32),
-            child: Container(
-              color: Colors.red,
-              child: Row(
-                children: [
-                  Container(
-                    color: Colors.green,
-                    child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: const [
-                        NutritionalInformationWidget(
-                          qtdCalories: '550',
-                          text: 'Calories',
-                        ),
-                        SizedBox(height: 36),
-                        NutritionalInformationWidget(
-                          qtdCalories: '45G',
-                          text: 'Total Carbs',
-                        )
-                      ],
+            child: Row(
+              children: [
+                Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: const [
+                    NutritionalInformationWidget(
+                      qtdCalories: '550',
+                      text: 'Calories',
+                    ),
+                    SizedBox(height: 36),
+                    NutritionalInformationWidget(
+                      qtdCalories: '45G',
+                      text: 'Total Carbs',
+                    )
+                  ],
+                ),
+                const SizedBox(
+                  width: 70,
+                ),
+                Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: const [
+                    NutritionalInformationWidget(
+                      qtdCalories: '550',
+                      text: 'Calories',
+                    ),
+                    SizedBox(height: 36),
+                    NutritionalInformationWidget(
+                      qtdCalories: '45G',
+                      text: 'Total Calories',
+                    ),
+                  ],
+                ),
+                const SizedBox(
+                  width: 16,
+                ),
+                const RotatedBox(
+                  quarterTurns: 3,
+                  child: Text(
+                    'CALCULATOR',
+                    style: TextStyle(
+                      color: Color(0xffEDB432),
+                      fontSize: 11,
+                      fontFamily: 'Monument-Extended',
                     ),
                   ),
-                  Container(
-                    color: Colors.green,
-                    child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: const [
-                        NutritionalInformationWidget(
-                          qtdCalories: '550',
-                          text: 'Calories',
-                        ),
-                        SizedBox(height: 36),
-                        NutritionalInformationWidget(
-                          qtdCalories: '45G',
-                          text: 'Total Calories',
-                        ),
-                      ],
-                    ),
-                  ),
-                  RotatedBox(
-                    quarterTurns: 3,
-                    child: Container(
-                      color: Colors.blue,
-                      child: Text(
-                        'CALCULATOR',
-                        style: TextStyle(
-                          color: Color(0xffEDB432),
-                          fontSize: 18,
-                        ),
-                      ),
-                    ),
-                  )
-                ],
-              ),
+                )
+              ],
             ),
           ),
           const Spacer(),
           Padding(
-            padding:
-                const EdgeInsets.only(left: 24, right: 24, bottom: 27 + 34),
+            padding: const EdgeInsets.only(left: 24, right: 24, bottom: 34),
             child: Container(
               decoration: const BoxDecoration(
                 color: Color(0xffEDB432),
@@ -113,7 +105,11 @@ class BigMacPage extends StatelessWidget {
               padding: const EdgeInsets.all(24),
               child: const Center(
                 child: Text(
-                  'VIEW INFORMATION',
+                  'VIEW INGREDIENTS & ALLERGENS',
+                  style: TextStyle(
+                    fontSize: 11,
+                    fontFamily: 'Monument-Extended',
+                  ),
                 ),
               ),
             ),
@@ -139,17 +135,17 @@ class NutritionalInformationWidget extends StatelessWidget {
         Text(
           qtdCalories,
           style: const TextStyle(
-            color: Colors.white,
-            fontSize: 18,
-          ),
+              color: Colors.white,
+              fontSize: 13,
+              fontFamily: 'Monument-Extended'),
         ),
         const SizedBox(height: 10),
         Text(
           text,
           style: const TextStyle(
-            color: Color(0xff687C6B),
-            fontSize: 18,
-          ),
+              color: Color(0xff687C6B),
+              fontSize: 10,
+              fontFamily: 'Monument-Extended'),
         ),
       ],
     );

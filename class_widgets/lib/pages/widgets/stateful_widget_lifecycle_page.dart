@@ -29,7 +29,7 @@ class _StatefulWidgetLifecyclePageState
                 setState(() {});
               },
             ),
-            TextField()
+            const TextField()
           ],
         ),
       ),

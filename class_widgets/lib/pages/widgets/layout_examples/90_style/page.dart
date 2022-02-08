@@ -8,10 +8,19 @@ class StylePage extends StatelessWidget {
     return Scaffold(
       backgroundColor: const Color(0xff913CF0),
       appBar: AppBar(
+        leading: IconButton(
+          icon: const Icon(Icons.arrow_back),
+          onPressed: () {
+            Navigator.pop(context);
+          },
+        ),
         backgroundColor: const Color(0xff913CF0),
         actions: const [
           Center(
-            child: Text('Skip'),
+            child: Text(
+              'Skip',
+              style: TextStyle(fontFamily: 'Monument-Extended'),
+            ),
           ),
           SizedBox(
             width: 10,
@@ -51,7 +60,11 @@ class SiginEmailButtonWidget extends StatelessWidget {
       child: const Center(
         child: Text(
           "Signup with Email",
-          style: TextStyle(color: Colors.white, fontSize: 16),
+          style: TextStyle(
+            color: Colors.white,
+            fontSize: 14,
+            fontFamily: 'Monument-Extended',
+          ),
         ),
       ),
     );
@@ -72,13 +85,21 @@ class BodyContentWidget extends StatelessWidget {
         const Text(
           '90s style',
           textAlign: TextAlign.center,
-          style: TextStyle(fontSize: 24, color: Colors.white),
+          style: TextStyle(
+            fontSize: 24,
+            color: Colors.white,
+            fontFamily: 'Monument-Extended',
+          ),
         ),
         const SizedBox(height: 37),
         const Text(
           '90s Nostalgia gifts & Merchandise',
           textAlign: TextAlign.center,
-          style: TextStyle(fontSize: 14, color: Colors.white),
+          style: TextStyle(
+            fontSize: 12,
+            color: Colors.white,
+            fontFamily: 'Monument-Extended',
+          ),
         ),
         const SizedBox(
           height: 144,

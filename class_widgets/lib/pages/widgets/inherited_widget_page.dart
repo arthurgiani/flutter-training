@@ -8,6 +8,7 @@ class InheritedWidgetPage extends StatefulWidget {
 }
 
 class _InheritedWidgetPageState extends State<InheritedWidgetPage> {
+  final text = 'test';
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -15,8 +16,10 @@ class _InheritedWidgetPageState extends State<InheritedWidgetPage> {
         title: const Text('InheritedWidget'),
       ),
       body: Column(
-        children: const [
-          Container1(),
+        children: [
+          Container1(
+            text: text,
+          ),
         ],
       ),
     );
@@ -24,7 +27,8 @@ class _InheritedWidgetPageState extends State<InheritedWidgetPage> {
 }
 
 class Container1 extends StatelessWidget {
-  const Container1({Key? key}) : super(key: key);
+  final String text;
+  const Container1({Key? key, required this.text}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -32,15 +36,18 @@ class Container1 extends StatelessWidget {
       height: 200,
       width: 200,
       color: Colors.blue,
-      child: const Center(
-        child: Container2(),
+      child: Center(
+        child: Container2(
+          text: text,
+        ),
       ),
     );
   }
 }
 
 class Container2 extends StatelessWidget {
-  const Container2({Key? key}) : super(key: key);
+  final String text;
+  const Container2({Key? key, required this.text}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -48,15 +55,18 @@ class Container2 extends StatelessWidget {
       height: 150,
       width: 150,
       color: Colors.red,
-      child: const Center(
-        child: Container3(),
+      child: Center(
+        child: Container3(
+          text: text,
+        ),
       ),
     );
   }
 }
 
 class Container3 extends StatelessWidget {
-  const Container3({Key? key}) : super(key: key);
+  final String text;
+  const Container3({Key? key, required this.text}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -64,6 +74,9 @@ class Container3 extends StatelessWidget {
       height: 100,
       width: 100,
       color: Colors.white,
+      child: Center(
+        child: Text(text),
+      ),
     );
   }
 }

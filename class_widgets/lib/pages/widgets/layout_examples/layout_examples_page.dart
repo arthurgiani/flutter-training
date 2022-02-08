@@ -1,7 +1,8 @@
 import 'package:class_widgets/components/custom_button.dart';
-import 'package:class_widgets/pages/layout_examples/90_style/page.dart';
-import 'package:class_widgets/pages/layout_examples/bigmac/bigmac_page.dart';
 import 'package:flutter/material.dart';
+
+import '90_style/page.dart';
+import 'bigmac/bigmac_page.dart';
 
 class LayoutExamplesPage extends StatelessWidget {
   const LayoutExamplesPage({Key? key}) : super(key: key);
@@ -10,7 +11,7 @@ class LayoutExamplesPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Layout Examples Page'),
+        title: const Text('Layout Examples Page'),
       ),
       body: Center(
         child: Column(

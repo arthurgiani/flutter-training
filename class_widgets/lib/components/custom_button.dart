@@ -13,17 +13,17 @@ class CustomButton extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return ElevatedButton(
+      child: Text(label, textAlign: TextAlign.center),
+      style: ElevatedButton.styleFrom(
+        minimumSize: const Size(200, 40),
+        maximumSize: const Size(200, 200),
+      ),
       onPressed: () {
         Navigator.push(
           context,
           MaterialPageRoute(builder: (context) => nextWidget),
         );
       },
-      child: Text(label, textAlign: TextAlign.center),
-      style: ElevatedButton.styleFrom(
-        minimumSize: const Size(200, 40),
-        maximumSize: const Size(200, 200),
-      ),
     );
   }
 }

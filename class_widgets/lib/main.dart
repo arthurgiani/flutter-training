@@ -1,4 +1,5 @@
 import 'package:class_widgets/components/custom_button.dart';
+import 'package:class_widgets/pages/navigation/navigation_test_first_page.dart';
 import 'package:class_widgets/pages/widgets/widgets_intro_page.dart';
 import 'package:flutter/material.dart';
 
@@ -15,8 +16,21 @@ class MyApp extends StatelessWidget {
       title: 'Flutter Demo',
       theme: ThemeData(
         primarySwatch: Colors.blue,
+        textTheme: const TextTheme(
+          headline1: TextStyle(
+              fontSize: 24,
+              color: Colors.white,
+              fontFamily: 'Monument-Extended'),
+        ),
       ),
       home: const MyHomePage(),
+      //initialRoute: '/',
+      //routes: {
+      //  '/': (context) => const MyHomePage(),
+      //  '/navigation-page1': (context) => const NavigationTestFirstPage(),
+      //  '/navigation-page2': (context) => const NavigationTestSecondPage(),
+      //  '/navigation-page3': (context) => const NavigationTestThirdPage()
+      //},
     );
   }
 }
@@ -44,6 +58,10 @@ class _MyHomePageState extends State<MyHomePage> {
             CustomButton(
               label: 'Widgets',
               nextWidget: WidgetsIntroPage(),
+            ),
+            CustomButton(
+              label: 'Navigation',
+              nextWidget: NavigationTestFirstPage(),
             )
           ],
         ),

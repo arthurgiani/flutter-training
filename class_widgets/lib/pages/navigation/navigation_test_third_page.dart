@@ -1,0 +1,38 @@
+import 'package:class_widgets/pages/navigation/navigation_test_second_page.dart';
+import 'package:flutter/material.dart';
+
+class NavigationTestThirdPage extends StatelessWidget {
+  const NavigationTestThirdPage({Key? key}) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        title: const Text('Page 3'),
+      ),
+      body: Center(
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            ElevatedButton(
+              child: const Text('Go to Page2'),
+              onPressed: () {
+                Navigator.of(context).push(
+                  MaterialPageRoute(
+                    builder: (_) => const NavigationTestSecondPage(),
+                  ),
+                );
+              },
+            ),
+            ElevatedButton(
+              child: const Text('Back to Previous Page'),
+              onPressed: () {
+                Navigator.of(context).pop();
+              },
+            ),
+          ],
+        ),
+      ),
+    );
+  }
+}
