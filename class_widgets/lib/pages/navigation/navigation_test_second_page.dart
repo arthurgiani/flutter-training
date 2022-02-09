@@ -11,52 +11,59 @@ class NavigationTestSecondPage extends StatelessWidget {
         title: const Text('Page 2'),
       ),
       body: Center(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            ElevatedButton(
-              child: const Text(
-                'Back to first page of the stack',
+        child: Padding(
+          padding: const EdgeInsets.symmetric(horizontal: 56),
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            crossAxisAlignment: CrossAxisAlignment.stretch,
+            children: [
+              ElevatedButton(
+                child: const Text('Go back to first page of the stack'),
+                onPressed: () {
+                  Navigator.of(context).popUntil((route) => route.isFirst);
+                },
               ),
-              onPressed: () {
-                Navigator.of(context).popUntil((route) => route.isFirst);
-              },
-            ),
-            ElevatedButton(
-              child: const Text(
-                'Go to Page3 and clear all stack until first route',
+              ElevatedButton(
+                child: const Text('Go back to Page3'),
+                onPressed: () {
+                  Navigator.of(context).push(
+                    MaterialPageRoute(
+                      builder: (context) => const NavigationTestThirdPage(),
+                    ),
+                  );
+                },
               ),
-              onPressed: () {
-                Navigator.of(context).pushAndRemoveUntil(
-                  MaterialPageRoute(
-                    builder: (context) => const NavigationTestThirdPage(),
-                  ),
-                  (route) => route.isFirst,
-                );
-              },
-            ),
-            ElevatedButton(
-              child: const Text(
-                'Go to Page3 and clear all stack',
+              ElevatedButton(
+                child: const Text(
+                    'Go to Page3 and clear all stack until first route'),
+                onPressed: () {
+                  Navigator.of(context).pushAndRemoveUntil(
+                    MaterialPageRoute(
+                      builder: (context) => const NavigationTestThirdPage(),
+                    ),
+                    (route) => route.isFirst,
+                  );
+                },
               ),
-              onPressed: () {
-                Navigator.of(context).pushAndRemoveUntil(
-                  MaterialPageRoute(
-                    builder: (context) => const NavigationTestThirdPage(),
-                  ),
-                  (route) => false,
-                );
-              },
-            ),
-            ElevatedButton(
-              child: const Text(
-                'Back to previous page',
+              ElevatedButton(
+                child: const Text('Go to Page3 and clear all stack'),
+                onPressed: () {
+                  Navigator.of(context).pushAndRemoveUntil(
+                    MaterialPageRoute(
+                      builder: (context) => const NavigationTestThirdPage(),
+                    ),
+                    (route) => false,
+                  );
+                },
               ),
-              onPressed: () {
-                Navigator.of(context).pop();
-              },
-            )
-          ],
+              ElevatedButton(
+                child: const Text('Back to previous page'),
+                onPressed: () {
+                  Navigator.of(context).pop();
+                },
+              )
+            ],
+          ),
         ),
       ),
     );

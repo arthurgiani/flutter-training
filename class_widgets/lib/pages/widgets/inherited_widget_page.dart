@@ -8,6 +8,9 @@ class InheritedWidgetPage extends StatefulWidget {
 }
 
 class _InheritedWidgetPageState extends State<InheritedWidgetPage> {
+  //if you don't use a InheritedWidget mechanism, you'll have to pass
+  //the text variable throughout each constructor until it gets to the last
+  //container
   final text = 'test';
   @override
   Widget build(BuildContext context) {
@@ -75,12 +78,15 @@ class Container3 extends StatelessWidget {
       width: 100,
       color: Colors.white,
       child: Center(
+        //child: Text(InheritedText.of(context).text)
         child: Text(text),
       ),
     );
   }
 }
 
+//wrap [MaterialApp] in main.dart inside a [InheritedText] and you can retrieve 'text'
+//value in any component using InheritedText.of(context).text
 class InheritedText extends InheritedWidget {
   const InheritedText({
     Key? key,

@@ -11,26 +11,30 @@ class NavigationTestThirdPage extends StatelessWidget {
         title: const Text('Page 3'),
       ),
       body: Center(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            ElevatedButton(
-              child: const Text('Go to Page2'),
-              onPressed: () {
-                Navigator.of(context).push(
-                  MaterialPageRoute(
-                    builder: (_) => const NavigationTestSecondPage(),
-                  ),
-                );
-              },
-            ),
-            ElevatedButton(
-              child: const Text('Back to Previous Page'),
-              onPressed: () {
-                Navigator.of(context).pop();
-              },
-            ),
-          ],
+        child: Padding(
+          padding: const EdgeInsets.symmetric(horizontal: 56),
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            crossAxisAlignment: CrossAxisAlignment.stretch,
+            children: [
+              ElevatedButton(
+                child: const Text('Go to Page2'),
+                onPressed: () {
+                  Navigator.of(context).push(
+                    MaterialPageRoute(
+                      builder: (_) => const NavigationTestSecondPage(),
+                    ),
+                  );
+                },
+              ),
+              ElevatedButton(
+                child: const Text('Back to Previous Page'),
+                onPressed: () {
+                  Navigator.of(context).pop();
+                },
+              ),
+            ],
+          ),
         ),
       ),
     );

@@ -20,10 +20,14 @@ class BigMacPage extends StatelessWidget {
       body: Column(
         crossAxisAlignment: CrossAxisAlignment.stretch,
         children: [
-          Text(
+          const Text(
             'Big Mac',
             textAlign: TextAlign.center,
-            style: Theme.of(context).textTheme.subtitle1,
+            style: TextStyle(
+              color: Colors.white,
+              fontSize: 18,
+              fontFamily: 'Monument-Extended',
+            ),
           ),
           const SizedBox(height: 48),
           Image.asset(
