@@ -24,7 +24,7 @@ class NavigationTestSecondPage extends StatelessWidget {
                 },
               ),
               ElevatedButton(
-                child: const Text('Go back to Page3'),
+                child: const Text('Go to Page3'),
                 onPressed: () {
                   Navigator.of(context).push(
                     MaterialPageRoute(
@@ -35,7 +35,8 @@ class NavigationTestSecondPage extends StatelessWidget {
               ),
               ElevatedButton(
                 child: const Text(
-                    'Go to Page3 and clear all stack until first route'),
+                  'Go to Page3 and clear all stack until first route',
+                ),
                 onPressed: () {
                   Navigator.of(context).pushAndRemoveUntil(
                     MaterialPageRoute(

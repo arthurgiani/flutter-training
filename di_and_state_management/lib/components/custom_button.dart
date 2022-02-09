@@ -19,7 +19,10 @@ class CustomButton extends StatelessWidget {
         maximumSize: const Size(200, 200),
       ),
       onPressed: () {
-        Navigator.push(context, MaterialPageRoute(builder: (_) => nextWidget));
+        Navigator.push(
+          context,
+          MaterialPageRoute(builder: (context) => nextWidget),
+        );
       },
     );
   }

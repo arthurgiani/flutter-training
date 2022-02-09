@@ -30,7 +30,13 @@ class NavigationTestThirdPage extends StatelessWidget {
               ElevatedButton(
                 child: const Text('Back to Previous Page'),
                 onPressed: () {
-                  Navigator.of(context).pop();
+                  //canPop returns a boolean that indicates if you can pop
+                  // this screen or not. It avoid to call pop when you're
+                  //on last page of the app and therefore close the app because
+                  //there will be no screens to show.
+                  if (Navigator.canPop(context)) {
+                    Navigator.of(context).pop();
+                  }
                 },
               ),
             ],
