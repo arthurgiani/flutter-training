@@ -1,5 +1,5 @@
-class TextB {
+class SecondText {
   final String text;
 
-  TextB({required this.text});
+  SecondText({required this.text});
 }

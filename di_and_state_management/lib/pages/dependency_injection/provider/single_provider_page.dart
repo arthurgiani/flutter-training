@@ -27,7 +27,7 @@ class _SingleProviderPageState extends State<SingleProviderPage> {
               child: Center(
                 //You can use context.read extension as well.
                 //child: Text(context.read<TextA>().text),
-                child: Text(Provider.of<TextA>(context).text),
+                child: Text(Provider.of<FirstText>(context).text),
               ),
             )
           ],

@@ -10,6 +10,25 @@ class SetStateListPage extends StatefulWidget {
 }
 
 class _SetStateListPageState extends State<SetStateListPage> {
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        title: const Text('Loading List'),
+      ),
+      body: const _BodyWidget(),
+    );
+  }
+}
+
+class _BodyWidget extends StatefulWidget {
+  const _BodyWidget({Key? key}) : super(key: key);
+
+  @override
+  __BodyWidgetState createState() => __BodyWidgetState();
+}
+
+class __BodyWidgetState extends State<_BodyWidget> {
   final _listController = ListController(listRepository: ListRepository());
 
   @override
@@ -17,28 +36,31 @@ class _SetStateListPageState extends State<SetStateListPage> {
     super.initState();
     _listController.getStringList().then((value) {
       setState(() {});
+    }).catchError((error, stackTrace) {
+      setState(() {});
     });
   }
 
   @override
   Widget build(BuildContext context) {
     if (_listController.isLoading) {
-      return const Material(child: CircularProgressIndicator.adaptive());
-    } else {
-      return Scaffold(
-        appBar: AppBar(
-          title: const Text('Loading List'),
-        ),
-        body: ListView.builder(
-          itemCount: _listController.stringList.length,
-          itemBuilder: (context, index) {
-            final text = _listController.stringList[index];
-            return ListTile(
-              title: Text(text),
-            );
-          },
-        ),
+      return const Center(
+        child: CircularProgressIndicator.adaptive(),
       );
     }
+    if (_listController.isListLoaded) {
+      return ListView.builder(
+        itemCount: _listController.stringList.length,
+        itemBuilder: (context, index) {
+          final text = _listController.stringList[index];
+          return ListTile(
+            title: Text(text),
+          );
+        },
+      );
+    }
+    return const Center(
+      child: Text('Error!'),
+    );
   }
 }

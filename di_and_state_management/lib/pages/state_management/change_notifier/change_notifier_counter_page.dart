@@ -13,7 +13,9 @@ class ChangeNotifierCounterPage extends StatefulWidget {
 class _ChangeNotifierCounterPageState extends State<ChangeNotifierCounterPage> {
   @override
   Widget build(BuildContext context) {
-    final counterController = context.watch<CounterNotifier>();
+    ///[context.watch<T>] is the same of [Provider.of<T>(context)]
+    //final counterNotifier = context.watch<CounterNotifier>;
+    final counterNotifier = Provider.of<CounterNotifier>(context);
     return Scaffold(
       appBar: AppBar(
         title: const Text('ChangeNotifier'),
@@ -23,11 +25,11 @@ class _ChangeNotifierCounterPageState extends State<ChangeNotifierCounterPage> {
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
             Text(
-              counterController.counter.toString(),
+              counterNotifier.counter.toString(),
             ),
             ElevatedButton(
               onPressed: () {
-                counterController.increment();
+                counterNotifier.increment();
               },
               child: const Text(
                 'Increment Counter',

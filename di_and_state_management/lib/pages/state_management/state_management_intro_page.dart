@@ -1,9 +1,9 @@
 import 'package:di_and_state_management/components/custom_button.dart';
-import 'package:di_and_state_management/notifiers/counter_notifier.dart';
-import 'package:di_and_state_management/pages/state_management/change_notifier/change_notifier_counter_page.dart';
+import 'package:di_and_state_management/pages/state_management/cubit/cubit_intro_page.dart';
 import 'package:di_and_state_management/pages/state_management/setState/setstate_intro_page.dart';
 import 'package:flutter/material.dart';
-import 'package:provider/provider.dart';
+
+import 'change_notifier/change_notifier_intro_page.dart';
 
 class StateManagementIntroPage extends StatefulWidget {
   const StateManagementIntroPage({Key? key}) : super(key: key);
@@ -23,17 +23,22 @@ class _StateManagementIntroPageState extends State<StateManagementIntroPage> {
       body: Center(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
-          children: <Widget>[
-            const CustomButton(
+          children: const <Widget>[
+            CustomButton(
               label: 'setState',
               nextWidget: SetStateIntroPage(),
             ),
             CustomButton(
               label: 'ChangeNotifier',
-              nextWidget: ChangeNotifierProvider(
-                create: (context) => CounterNotifier(),
-                child: const ChangeNotifierCounterPage(),
-              ),
+              nextWidget: ChangeNotifierIntroPage(),
+            ),
+            //CustomButton(
+            //  label: 'Bloc',
+            //  nextWidget: ChangeNotifierIntroPage(),
+            //),
+            CustomButton(
+              label: 'Cubit',
+              nextWidget: CubitIntroPage(),
             ),
           ],
         ),

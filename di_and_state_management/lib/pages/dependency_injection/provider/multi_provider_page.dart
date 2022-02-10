@@ -26,7 +26,8 @@ class _MultiProviderPageState extends State<MultiProviderPage> {
               width: 100,
               color: Colors.red,
               child: Center(
-                child: Text(Provider.of<TextA>(context).text),
+                //child: Text(context.read<TextA>().text),
+                child: Text(Provider.of<FirstText>(context).text),
               ),
             ),
             const SizedBox(height: 24),
@@ -35,7 +36,8 @@ class _MultiProviderPageState extends State<MultiProviderPage> {
               width: 100,
               color: Colors.red,
               child: Center(
-                child: Text(Provider.of<TextB>(context).text),
+                //child: Text(context.read<TextB>().text),
+                child: Text(Provider.of<SecondText>(context).text),
               ),
             )
           ],

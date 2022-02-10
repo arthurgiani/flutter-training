@@ -27,10 +27,10 @@ class _ProviderIntroPageState extends State<ProviderIntroPage> {
             CustomButton(
               label: 'SingleProvider',
               //SingleProviderPage is wrapped inside a provider,
-              //So evvvery widget below will have access to the class
+              //So every widget below will have access to the class
               //that provider is 'providing'
               nextWidget: Provider(
-                create: (context) => TextA(text: 'TextA'),
+                create: (context) => FirstText(text: 'TextA'),
                 child: const SingleProviderPage(),
               ),
             ),
@@ -40,8 +40,8 @@ class _ProviderIntroPageState extends State<ProviderIntroPage> {
               //of different classes
               nextWidget: MultiProvider(
                 providers: [
-                  Provider(create: (context) => TextA(text: 'TextA')),
-                  Provider(create: (context) => TextB(text: 'TextB')),
+                  Provider(create: (context) => FirstText(text: 'TextA')),
+                  Provider(create: (context) => SecondText(text: 'TextB')),
                 ],
                 child: const MultiProviderPage(),
               ),
