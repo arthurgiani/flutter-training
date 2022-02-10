@@ -18,7 +18,7 @@
 - [How Flutter render widgets](https://www.youtube.com/watch?v=996ZgFRENMs&t=720s)
 - [Flutter Decoding](https://www.youtube.com/watch?v=ceCo8U0XHqw&list=PLjxrf2q8roU1fRV40Ec8200rX6OuQkmnl)
 - [What is BuildContext?](https://www.youtube.com/watch?v=ALmd6jLqUK8&t=295s)
-- [Flutter for ReactNative Devs](https://docs.flutter.dev/get-started/flutter-for/react-native-devs#react-native-and-flutter-widget-equivalent-components)
+- [Flutter for React Native Devs](https://docs.flutter.dev/get-started/flutter-for/react-native-devs#react-native-and-flutter-widget-equivalent-components)
 
 ## 3. State Management
 ### Provider
