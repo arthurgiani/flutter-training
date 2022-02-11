@@ -41,3 +41,4 @@
 - [Widgets Catalog](https://docs.flutter.dev/development/ui/widgets)
 - [Flutter Layout Cheatsheet](https://medium.com/flutter-community/flutter-layout-cheat-sheet-5363348d037e)
 - [Layout practice examples - Figma](https://www.figma.com/file/vBhq4gxgwBt7wHhHmgeCbb/Behance?node-id=247%3A2)
+- [How to avoid side effects in build() method](https://codewithandrea.com/articles/side-effects-flutter/)
