@@ -1,4 +1,4 @@
-import 'package:di_and_state_management/notifiers/counter_notifier.dart';
+import 'package:di_and_state_management/notifiers/counter_change_notifier.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/src/provider.dart';
 
@@ -14,8 +14,8 @@ class _ChangeNotifierCounterPageState extends State<ChangeNotifierCounterPage> {
   @override
   Widget build(BuildContext context) {
     ///[context.watch<T>] is the same of [Provider.of<T>(context)]
-    //final counterNotifier = context.watch<CounterNotifier>;
-    final counterNotifier = Provider.of<CounterNotifier>(context);
+    final counterNotifier = context.watch<CounterChangeNotifier>();
+    //final counterNotifier = Provider.of<CounterChangeNotifier>(context);
     return Scaffold(
       appBar: AppBar(
         title: const Text('ChangeNotifier'),

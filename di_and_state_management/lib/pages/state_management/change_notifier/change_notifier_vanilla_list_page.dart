@@ -37,7 +37,7 @@ class _ChangeNotifierVanillaListPageState
       appBar: AppBar(title: const Text('Vanilla Change Notifier')),
       body: AnimatedBuilder(
         animation: listChangeNotifier,
-        builder: (_, __) {
+        builder: (_, child) {
           return _BodyWidget(listChangeNotifier: listChangeNotifier);
         },
       ),

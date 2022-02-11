@@ -1,23 +1,24 @@
-import 'package:di_and_state_management/blocs/list_cubit.dart';
+import 'package:di_and_state_management/blocs/events/list_event.dart';
+import 'package:di_and_state_management/blocs/list_bloc.dart';
 import 'package:di_and_state_management/blocs/states/list_state.dart';
 import 'package:di_and_state_management/repositories/list_repository.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
-class ListCubitPage extends StatefulWidget {
-  const ListCubitPage({Key? key}) : super(key: key);
+class BlocListPage extends StatefulWidget {
+  const BlocListPage({Key? key}) : super(key: key);
 
   @override
-  _ListCubitPageState createState() => _ListCubitPageState();
+  _BlocListPageState createState() => _BlocListPageState();
 }
 
-class _ListCubitPageState extends State<ListCubitPage> {
-  final listCubit = ListCubit(listRepository: ListRepository());
+class _BlocListPageState extends State<BlocListPage> {
+  final listBloc = ListBloc(listRepository: ListRepository());
 
   @override
   void initState() {
     super.initState();
-    listCubit.getStringList();
+    listBloc.add(GetListEvent());
   }
 
   @override
@@ -26,8 +27,8 @@ class _ListCubitPageState extends State<ListCubitPage> {
       appBar: AppBar(
         title: const Text('Loading List'),
       ),
-      body: BlocBuilder<ListCubit, ListState>(
-        bloc: listCubit,
+      body: BlocBuilder<ListBloc, ListState>(
+        bloc: listBloc,
         builder: (context, state) {
           if (state is ListLoading) {
             return const Center(child: CircularProgressIndicator.adaptive());

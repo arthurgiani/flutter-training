@@ -1,5 +1,5 @@
 import 'package:di_and_state_management/components/custom_button.dart';
-import 'package:di_and_state_management/notifiers/counter_notifier.dart';
+import 'package:di_and_state_management/notifiers/counter_change_notifier.dart';
 import 'package:di_and_state_management/notifiers/list_change_notifier.dart';
 import 'package:di_and_state_management/pages/state_management/change_notifier/change_notifier_provider_list_page.dart';
 import 'package:di_and_state_management/pages/state_management/change_notifier/change_notifier_vanilla_list_page.dart';
@@ -31,7 +31,7 @@ class _ChangeNotifierIntroPageState extends State<ChangeNotifierIntroPage> {
             CustomButton(
               label: 'Counter',
               nextWidget: ChangeNotifierProvider(
-                create: (context) => CounterNotifier(),
+                create: (context) => CounterChangeNotifier(),
                 child: const ChangeNotifierCounterPage(),
               ),
             ),

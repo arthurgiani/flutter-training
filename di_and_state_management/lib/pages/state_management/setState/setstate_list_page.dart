@@ -31,13 +31,20 @@ class _BodyWidget extends StatefulWidget {
 class __BodyWidgetState extends State<_BodyWidget> {
   final _listController = ListController(listRepository: ListRepository());
 
+  /// [WidgetsBinding.instance!.addPostFrameCallback] is used to ensure
+  /// that setState will be called after the build of the first frame.
+  /// [setState] cannot be called while the widget tree is been built.
   @override
   void initState() {
     super.initState();
     _listController.getStringList().then((value) {
-      setState(() {});
+      WidgetsBinding.instance!.addPostFrameCallback((_) {
+        setState(() {});
+      });
     }).catchError((error, stackTrace) {
-      setState(() {});
+      WidgetsBinding.instance!.addPostFrameCallback((_) {
+        setState(() {});
+      });
     });
   }
 

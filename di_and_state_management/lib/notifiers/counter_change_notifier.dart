@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-class CounterNotifier extends ChangeNotifier {
+class CounterChangeNotifier extends ChangeNotifier {
   int counter = 0;
 
   void increment() {
