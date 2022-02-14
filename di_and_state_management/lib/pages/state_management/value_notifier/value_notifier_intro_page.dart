@@ -1,6 +1,7 @@
 import 'package:di_and_state_management/components/custom_button.dart';
 import 'package:di_and_state_management/notifiers/counter_value_notifier.dart';
 import 'package:di_and_state_management/pages/state_management/value_notifier/value_notifier_counter_page.dart';
+import 'package:di_and_state_management/pages/state_management/value_notifier/value_notifier_list_page.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
@@ -29,10 +30,10 @@ class _ValueNotifierIntroPageState extends State<ValueNotifierIntroPage> {
                 child: const ValueNotifierCounterPage(),
               ),
             ),
-            //CustomButton(
-            //  label: 'Loading List (TripleState)',
-            //  nextWidget: SetStateListPage(),
-            //),
+            const CustomButton(
+              label: 'Loading List (Triple State)',
+              nextWidget: ValueNotifierListPage(),
+            ),
           ],
         ),
       ),

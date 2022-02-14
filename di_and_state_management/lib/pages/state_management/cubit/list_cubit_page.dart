@@ -1,6 +1,6 @@
 import 'package:di_and_state_management/blocs/list_cubit.dart';
-import 'package:di_and_state_management/blocs/states/list_state.dart';
 import 'package:di_and_state_management/repositories/list_repository.dart';
+import 'package:di_and_state_management/states/list_state.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 

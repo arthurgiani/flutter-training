@@ -1,4 +1,5 @@
 import 'package:di_and_state_management/components/custom_button.dart';
+import 'package:di_and_state_management/pages/state_management/cubit/counter_cubit_vanilla_page.dart';
 import 'package:di_and_state_management/pages/state_management/cubit/list_cubit_page.dart';
 import 'package:flutter/material.dart';
 
@@ -23,13 +24,17 @@ class _CubitIntroPageState extends State<CubitIntroPage> {
           mainAxisAlignment: MainAxisAlignment.center,
           children: const <Widget>[
             CustomButton(
+              label: 'Counter Vanilla',
+              nextWidget: CounterCubitVanillaPage(),
+            ),
+            CustomButton(
               label: 'Counter',
               nextWidget: CounterCubitPage(),
             ),
             CustomButton(
               label: 'Loading List',
               nextWidget: ListCubitPage(),
-            )
+            ),
           ],
         ),
       ),

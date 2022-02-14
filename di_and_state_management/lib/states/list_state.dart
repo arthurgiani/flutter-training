@@ -1,3 +1,5 @@
+/// States to be used in both [Bloc] and [ValueNotifier]
+
 abstract class ListState {}
 
 class ListInitial implements ListState {}
