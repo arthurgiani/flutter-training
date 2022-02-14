@@ -36,6 +36,11 @@
 - [Bloc for companies (PT-BR)](https://www.youtube.com/watch?v=UB28e59GmK8)
 - [FAQ](https://bloclibrary.dev/#/faqs)
 
+### ValueNotifier
+- [Official Documentation](https://api.flutter.dev/flutter/foundation/ValueNotifier-class.html)
+- [ValueNotifier Playlist Series (PT-BR)](https://www.youtube.com/watch?v=zV1X9vwYcdI&list=PLlBnICoI-g-eG0eVkHu2IaO48TljxPjPq)
+- [ValueListenableBuilder (Widget of the week)](https://www.youtube.com/watch?v=s-ZG-jS5QHQ)
+
 ## 4. Useful Flutter tips
 - [Widget of The Week](https://www.youtube.com/watch?v=8ZaFk0yvNlI&list=PLjxrf2q8roU23XGwz3Km7sQZFTdB996iG)
 - [Widgets Catalog](https://docs.flutter.dev/development/ui/widgets)
