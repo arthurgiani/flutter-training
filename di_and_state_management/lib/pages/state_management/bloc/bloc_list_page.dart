@@ -22,6 +22,12 @@ class _BlocListPageState extends State<BlocListPage> {
   }
 
   @override
+  void dispose() {
+    listBloc.close();
+    super.dispose();
+  }
+
+  @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(

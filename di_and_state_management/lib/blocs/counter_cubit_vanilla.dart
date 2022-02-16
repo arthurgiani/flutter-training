@@ -11,4 +11,8 @@ class CounterCubitVanilla {
     counter++;
     _counterSink.add(counter);
   }
+
+  void dispose() {
+    _counterStreamController.close();
+  }
 }

@@ -21,6 +21,12 @@ class _ListCubitPageState extends State<ListCubitPage> {
   }
 
   @override
+  void dispose() {
+    listCubit.close();
+    super.dispose();
+  }
+
+  @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(

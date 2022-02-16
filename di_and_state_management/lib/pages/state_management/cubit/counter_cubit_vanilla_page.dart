@@ -11,6 +11,13 @@ class CounterCubitVanillaPage extends StatefulWidget {
 
 class _CounterCubitVanillaPageState extends State<CounterCubitVanillaPage> {
   final counterCubitVanilla = CounterCubitVanilla();
+
+  @override
+  void dispose() {
+    counterCubitVanilla.dispose();
+    super.dispose();
+  }
+
   @override
   Widget build(BuildContext context) {
     return StreamBuilder<int>(
