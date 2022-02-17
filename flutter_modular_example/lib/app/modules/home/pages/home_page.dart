@@ -38,6 +38,12 @@ class _HomePageState extends State<HomePage> {
                 Modular.to.navigate('/counter/');
               },
             ),
+            CustomButton(
+              label: 'Go to Nested Module',
+              onPressed: () {
+                Modular.to.navigate('/nested/module-a/');
+              },
+            ),
           ],
         ),
       ),
