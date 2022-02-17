@@ -41,6 +41,12 @@
 - [ValueNotifier Playlist Series (PT-BR)](https://www.youtube.com/watch?v=zV1X9vwYcdI&list=PLlBnICoI-g-eG0eVkHu2IaO48TljxPjPq)
 - [ValueListenableBuilder (Widget of the week)](https://www.youtube.com/watch?v=s-ZG-jS5QHQ)
 
+## 5. Service Locator & Route System
+### Flutter Modular
+- [Official Documentation](https://modular.flutterando.com.br/docs/intro)
+- [Modular Masterclass (PT-BR)](https://www.youtube.com/watch?v=3EV4ESweZzc)
+- [Modular Playlist Series](https://www.youtube.com/watch?v=RH3mJZ1NnUQ&list=PLUtyw_B7UtR44exOIEPrRphDT7sU-6ixi)
+
 ## 4. Useful Flutter tips
 - [Widget of The Week](https://www.youtube.com/watch?v=8ZaFk0yvNlI&list=PLjxrf2q8roU23XGwz3Km7sQZFTdB996iG)
 - [Widgets Catalog](https://docs.flutter.dev/development/ui/widgets)
