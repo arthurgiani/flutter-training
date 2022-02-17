@@ -2,12 +2,12 @@ import 'package:flutter/material.dart';
 
 class CustomButton extends StatelessWidget {
   final String label;
-  final Widget nextWidget;
+  final VoidCallback onPressed;
 
   const CustomButton({
     Key? key,
     required this.label,
-    required this.nextWidget,
+    required this.onPressed,
   }) : super(key: key);
 
   @override
@@ -18,9 +18,7 @@ class CustomButton extends StatelessWidget {
         minimumSize: const Size(200, 40),
         maximumSize: const Size(200, 200),
       ),
-      onPressed: () {
-        Navigator.push(context, MaterialPageRoute(builder: (_) => nextWidget));
-      },
+      onPressed: onPressed,
     );
   }
 }
