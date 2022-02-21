@@ -8,6 +8,10 @@ class NestedPage extends StatefulWidget {
   _NestedPageState createState() => _NestedPageState();
 }
 
+/// You can also return a CustomBottomNavigationBar instead of a native
+/// [BottomNavigationBar]. There's an example commented inside the build
+/// method.
+
 class _NestedPageState extends State<NestedPage> {
   @override
   Widget build(BuildContext context) {
@@ -29,14 +33,15 @@ class _NestedPageState extends State<NestedPage> {
           items: const [
             BottomNavigationBarItem(
               icon: Icon(Icons.ac_unit),
-              label: 'Modulo Inicial',
+              label: 'Module A',
             ),
             BottomNavigationBarItem(
               icon: Icon(Icons.ac_unit),
-              label: 'ModuloB',
+              label: 'Modulo B',
             ),
           ],
         );
+        // _CustomBottomNavigationBar();
       }),
     );
   }
@@ -49,5 +54,47 @@ class _NestedPageState extends State<NestedPage> {
       return 1;
     }
     return 0;
+  }
+}
+
+class _CustomBottomNavigationBar extends StatelessWidget {
+  const _CustomBottomNavigationBar({Key? key}) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return Row(
+      children: [
+        Expanded(
+          child: ListTile(
+            title: const Text(
+              'ModuleA',
+              textAlign: TextAlign.center,
+            ),
+            tileColor: Colors.red,
+            onTap: () {
+              Modular.to.navigate('../module-a/');
+            },
+            selectedTileColor: Colors.blue,
+            selected: Modular.to.path.endsWith('/module-a/'),
+            selectedColor: Colors.white,
+          ),
+        ),
+        Expanded(
+          child: ListTile(
+            title: const Text(
+              'ModuleB',
+              textAlign: TextAlign.center,
+            ),
+            tileColor: Colors.red,
+            onTap: () {
+              Modular.to.navigate('../module-b/');
+            },
+            selectedTileColor: Colors.blue,
+            selected: Modular.to.path.endsWith('/module-b/'),
+            selectedColor: Colors.white,
+          ),
+        ),
+      ],
+    );
   }
 }

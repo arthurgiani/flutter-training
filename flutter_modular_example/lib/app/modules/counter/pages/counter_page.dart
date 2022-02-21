@@ -25,13 +25,14 @@ class _CounterPageState extends State<CounterPage> {
               'You have pushed the button this many times:',
             ),
             ValueListenableBuilder(
-                valueListenable: widget.counterNotifier,
-                builder: (context, value, _) {
-                  return Text(
-                    value.toString(),
-                    style: Theme.of(context).textTheme.headline4,
-                  );
-                }),
+              valueListenable: widget.counterNotifier,
+              builder: (_, value, ___) {
+                return Text(
+                  value.toString(),
+                  style: Theme.of(context).textTheme.headline4,
+                );
+              },
+            ),
           ],
         ),
       ),
