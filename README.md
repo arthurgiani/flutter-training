@@ -53,6 +53,7 @@
 - [Creating Mocks in Dart using Mocktail](https://pub.dev/packages/mocktail)
 - [Flutter Testing Guide for Beginners](https://www.youtube.com/watch?v=hUAUAkIZmX0&list=PLB6lc7nQ1n4jN2u4rMmb-3tdJ_cQBs-YS)
 - [Flutter Explained - Unit Testing](https://www.youtube.com/watch?v=C1kzJH8SiuE&t=701s)
+- [Unit Testing Flutterando Playlist (PT-BR)](https://www.youtube.com/watch?v=zlYQe-9QMug&list=PLlBnICoI-g-etEtbvgDnO40SYKOSktCj4)
 
 ## 6. Useful Flutter Tips
 - [Widget of The Week](https://www.youtube.com/watch?v=8ZaFk0yvNlI&list=PLjxrf2q8roU23XGwz3Km7sQZFTdB996iG)
