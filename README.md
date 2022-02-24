@@ -55,6 +55,10 @@
 - [Flutter Explained - Unit Testing](https://www.youtube.com/watch?v=C1kzJH8SiuE&t=701s)
 - [Unit Testing Flutterando Playlist (PT-BR)](https://www.youtube.com/watch?v=zlYQe-9QMug&list=PLlBnICoI-g-etEtbvgDnO40SYKOSktCj4)
 
+## 6. Clean Architecture
+- [Clean Architecture Playlist (PT-BR)](https://www.youtube.com/watch?v=VacEeKvY2bg&list=PLlBnICoI-g-d-v_fWlkZX2HRgHHPnJx9s)
+- [Clean Architechture Example - Reso Coder](https://www.youtube.com/watch?v=KjE2IDphA_U&list=PLB6lc7nQ1n4iYGE_khpXRdJkJEp9WOech)
+
 ## 6. Useful Flutter Tips
 - [Widget of The Week](https://www.youtube.com/watch?v=8ZaFk0yvNlI&list=PLjxrf2q8roU23XGwz3Km7sQZFTdB996iG)
 - [Widgets Catalog](https://docs.flutter.dev/development/ui/widgets)
