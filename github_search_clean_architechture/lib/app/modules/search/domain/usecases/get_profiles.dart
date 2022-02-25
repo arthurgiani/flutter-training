@@ -15,7 +15,7 @@ class GetProfilesUsecase implements IGetProfilesUsecase {
 
   @override
   Future<List<ProfileEntity>> call({required String searchText}) async {
-    final bool isShortString = searchText.length < 3;
+    final bool isShortString = searchText.replaceAll(' ', '').length < 3;
     if (isShortString) {
       throw ShortProfileNameFailure(
         message: 'Plase, type a name that has more than 3 characters.',

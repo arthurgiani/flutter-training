@@ -36,6 +36,9 @@ class ProfileParseFailure extends ProfileFailure {
         );
 }
 
+// FormatExpception - int -> double (2.1)
+// TypeError - String -> null
+
 class ProfileNoInternetFailure extends ProfileFailure {
   ProfileNoInternetFailure({
     required String message,
