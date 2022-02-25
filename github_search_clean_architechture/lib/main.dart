@@ -113,3 +113,12 @@ class _MyHomePageState extends State<MyHomePage> {
     );
   }
 }
+
+
+
+//feature de pesquisa de perfis do github (caso de uso)
+
+//o perfil contém um login associado, um id, e o avatar do perfil do usuário (entidade)
+
+//se o usuário digitar um perfil de 3 caracteres ou menos, nao realizar a busca e alertar o usuário para digitar um perfil maior
+//validação do caso de uso
