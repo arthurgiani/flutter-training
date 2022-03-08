@@ -1,4 +1,4 @@
-import 'package:dio/dio.dart';
+import 'package:github_search_clean_architechture/app/core/exceptions.dart';
 import 'package:github_search_clean_architechture/app/modules/search/domain/entities/profile_entity.dart';
 import 'package:github_search_clean_architechture/app/modules/search/domain/errors/failures.dart';
 import 'package:github_search_clean_architechture/app/modules/search/domain/repositories/profile_repository_interface.dart';
@@ -15,9 +15,9 @@ class ProfileRepository implements IProfileRepository {
   Future<List<ProfileEntity>> getProfiles({required String searchText}) async {
     try {
       return await _profileDatasource.getProfiles(searchText: searchText);
-    } on DioError catch (error, stackTrace) {
+    } on CustomException catch (error, stackTrace) {
       throw ProfileDatasourceFailure(
-          message: 'Erro inesperado. Por favor tente novamente.',
+          message: error.message,
           stackTrace: stackTrace,
           label: 'ProfileRepository: getProfiles() - ProfileDatasourceFailure');
     } on TypeError catch (error, stackTrace) {

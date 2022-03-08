@@ -8,7 +8,7 @@ void main() {
       //Arrange
       final Map<String, dynamic> map = {
         'login': 'teste',
-        'id': '123455',
+        'id': 123455,
         'avatar_url': '12234422'
       };
 
