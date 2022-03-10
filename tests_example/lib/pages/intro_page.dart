@@ -3,6 +3,7 @@ import 'package:tests_example/components/custom_button.dart';
 import 'package:tests_example/pages/basic_widget_testing/basic_widget_testing_page.dart';
 import 'package:tests_example/pages/scrolling_test_page/scrolling_test_page.dart';
 import 'package:tests_example/pages/stateful_widget/stateful_widget_page.dart';
+import 'package:tests_example/pages/todo_list/todo_list_page.dart';
 
 class IntroPage extends StatefulWidget {
   const IntroPage({Key? key}) : super(key: key);
@@ -41,6 +42,10 @@ class _IntroPageState extends State<IntroPage> {
             CustomButton(
               label: 'Stateful Widget Test',
               nextWidget: StatefulWidgetPage(),
+            ),
+            CustomButton(
+              label: 'Todo List',
+              nextWidget: TodoList(),
             )
           ],
         ),
