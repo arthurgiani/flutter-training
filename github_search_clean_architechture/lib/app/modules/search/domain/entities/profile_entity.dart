@@ -3,7 +3,7 @@ class ProfileEntity {
   final String login;
   final String avatarUrl;
 
-  ProfileEntity({
+  const ProfileEntity({
     required this.id,
     required this.login,
     required this.avatarUrl,

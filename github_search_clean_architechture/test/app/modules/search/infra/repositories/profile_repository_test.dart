@@ -1,4 +1,5 @@
 import 'package:flutter_test/flutter_test.dart';
+import 'package:github_search_clean_architechture/app/core/exceptions.dart';
 import 'package:github_search_clean_architechture/app/modules/search/domain/entities/profile_entity.dart';
 import 'package:github_search_clean_architechture/app/modules/search/domain/errors/failures.dart';
 import 'package:github_search_clean_architechture/app/modules/search/domain/repositories/profile_repository_interface.dart';
@@ -62,6 +63,22 @@ void main() {
       //Assert
       expect(() async => await profileRepository.getProfiles(searchText: ''),
           throwsA(isA<ProfileParseFailure>()));
+      verify(() => profileDatasource.getProfiles(
+          searchText: any(named: 'searchText'))).called(1);
+      verifyNoMoreInteractions(profileDatasource);
+    });
+
+    test(
+        'should throw ProfileDatasourceFailure when datasource throws a subclass of CustomException',
+        () async {
+      //Arrange
+      when(() => profileDatasource.getProfiles(
+              searchText: any(named: 'searchText')))
+          .thenThrow(DatasourceExpcetion(message: ''));
+
+      //Assert
+      expect(() async => await profileRepository.getProfiles(searchText: ''),
+          throwsA(isA<ProfileDatasourceFailure>()));
       verify(() => profileDatasource.getProfiles(
           searchText: any(named: 'searchText'))).called(1);
       verifyNoMoreInteractions(profileDatasource);
