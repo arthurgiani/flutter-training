@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:tests_example/components/custom_button.dart';
+import 'package:tests_example/pages/animations/animation_intro_page.dart';
 import 'package:tests_example/pages/basic_widget_testing/basic_widget_testing_page.dart';
 import 'package:tests_example/pages/scrolling_test_page/scrolling_test_page.dart';
 import 'package:tests_example/pages/stateful_widget/stateful_widget_page.dart';
@@ -13,14 +14,6 @@ class IntroPage extends StatefulWidget {
 }
 
 class _IntroPageState extends State<IntroPage> {
-  int _counter = 0;
-
-  void _incrementCounter() {
-    setState(() {
-      _counter++;
-    });
-  }
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -46,6 +39,10 @@ class _IntroPageState extends State<IntroPage> {
             CustomButton(
               label: 'Todo List',
               nextWidget: TodoList(),
+            ),
+            CustomButton(
+              label: 'Animation',
+              nextWidget: AnimationIntroPage(),
             )
           ],
         ),
