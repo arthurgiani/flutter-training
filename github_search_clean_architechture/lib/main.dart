@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:github_search_clean_architechture/app/modules/search/presentation/pages/profiles_page.dart';
+import 'package:flutter_modular/flutter_modular.dart';
+
+import 'app/app_module.dart';
 
 void main() {
-  runApp(const MyApp());
+  runApp(ModularApp(module: AppModule(), child: const MyApp()));
 }
 
 class MyApp extends StatelessWidget {
@@ -11,12 +13,11 @@ class MyApp extends StatelessWidget {
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      title: 'Flutter Demo',
-      theme: ThemeData(
-        primarySwatch: Colors.blue,
-      ),
-      home: const ProfilesPage(),
+    return MaterialApp.router(
+      title: 'My Smart App',
+      theme: ThemeData(primarySwatch: Colors.blue),
+      routeInformationParser: Modular.routeInformationParser,
+      routerDelegate: Modular.routerDelegate,
     );
   }
 }

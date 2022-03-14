@@ -18,8 +18,7 @@ class ProfileDatasource implements IProfileDatasource {
       );
 
       if (response.statusCode == 200) {
-        final responseMapList =
-            response.data['items'] as List<Map<String, dynamic>>;
+        final responseMapList = response.data['items'] as List;
 
         final profileList = responseMapList
             .map((map) => ProfileEntityAdapter.fromMap(map: map))
