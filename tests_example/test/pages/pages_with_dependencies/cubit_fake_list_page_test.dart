@@ -85,7 +85,8 @@ void main() {
     await tester.enterText(textField, 'item added');
 
     await tester.tap(find.byType(FloatingActionButton));
-
+    await tester.pump();
+    expect(find.byType(CircularProgressIndicator), findsOneWidget);
     await tester.pumpAndSettle();
 
     expect(find.text('item added'), findsOneWidget);
