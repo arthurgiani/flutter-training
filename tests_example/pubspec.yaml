@@ -36,6 +36,8 @@ dependencies:
   cupertino_icons: ^1.0.2
   mocktail: ^0.2.0
   dartz: ^0.10.1
+  bloc: ^8.0.3
+  flutter_bloc: ^8.0.1
 
 dev_dependencies:
   flutter_test:
