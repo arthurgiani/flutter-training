@@ -45,7 +45,7 @@ class _TodoListState extends State<TodoList> {
                 itemBuilder: (_, index) {
                   final todo = todos[index];
                   return Dismissible(
-                    key: Key('$todo$index'),
+                    key: UniqueKey(),
                     onDismissed: (direction) => todos.removeAt(index),
                     child: Card(
                       elevation: 5,
