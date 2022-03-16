@@ -50,6 +50,7 @@ class _TodoListState extends State<TodoList> {
                     child: Card(
                       elevation: 5,
                       child: ListTile(
+                        key: Key('list_tile_$index'),
                         title: Text(todo),
                       ),
                     ),

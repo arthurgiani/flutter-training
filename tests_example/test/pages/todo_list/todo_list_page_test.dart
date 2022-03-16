@@ -15,19 +15,29 @@ void main() {
 
     await tester.enterText(textField, 'first todo');
 
-    await tester.tap(find.byType(FloatingActionButton));
+    final floatingActionButton = find.byType(FloatingActionButton);
+
+    await tester.tap(floatingActionButton);
 
     await tester.pump();
 
-    expect(find.text('first todo'), findsOneWidget);
+    final item0 = find.byKey(const Key('list_tile_0'));
+
+    expect(item0, findsOneWidget);
 
     //delete todo
     final dismissible = find.byType(Dismissible);
 
     await tester.drag(dismissible, const Offset(1000, 0));
 
+    //onDissmised parameter triggers an animation to delete the item. Threfore,
+    //pumpAndSettle should be used in most of cases in order to await the last
+    //scheduled frame to rebuild the UI. However, since the above method is a
+    //Future, we need to await the entire drag process to rebuild our UI.
+    //Due this, pump can be used instead of pumpAndSettle because we are
+    //assuring that pump will be called after the end of the animation.
     await tester.pumpAndSettle();
 
-    expect(find.text('first todo'), findsNothing);
+    expect(item0, findsNothing);
   });
 }
