@@ -28,9 +28,10 @@ void main() {
     );
   }
 
-  arrangeStringList() async {
+  arrangeStringList() {
     when(() => listRepositoryMock.getStringList()).thenAnswer(
       (_) async {
+        await Future.delayed(const Duration(seconds: 1));
         return strings;
       },
     );
@@ -47,10 +48,11 @@ void main() {
     final appBarTitle = find.text('Fake List - Cubit');
 
     expect(appBarTitle, findsOneWidget);
+    await tester.pumpAndSettle();
   });
 
   testWidgets(
-      'display circular progress indicator when list of strings is loading',
+      'display circular progress indicator when list of strings is loading when build method runs',
       (tester) async {
     arrangeStringList();
     await tester.pumpWidget(createMainTestWidget());
@@ -58,38 +60,21 @@ void main() {
     final circularProgress = find.byType(CircularProgressIndicator);
 
     expect(circularProgress, findsOneWidget);
+    await tester.pumpAndSettle();
   });
 
   testWidgets('display string list after loading', (tester) async {
     arrangeStringList();
     await tester.pumpWidget(createMainTestWidget());
-    await tester.pump();
-
-    for (String string in strings) {
-      expect(find.text(string), findsOneWidget);
-    }
-  });
-
-  testWidgets(
-      'write a text, click on a FAB and add an item to string list after string list is loaded',
-      (tester) async {
-    arrangeStringList();
-    await tester.pumpWidget(createMainTestWidget());
-    await tester.pump();
-
-    for (String string in strings) {
-      expect(find.text(string), findsOneWidget);
-    }
-
-    final textField = find.byType(TextField);
-    await tester.enterText(textField, 'item added');
-
-    await tester.tap(find.byType(FloatingActionButton));
-    await tester.pump();
-    expect(find.byType(CircularProgressIndicator), findsOneWidget);
     await tester.pumpAndSettle();
 
-    expect(find.text('item added'), findsOneWidget);
+    final listViewBuilder = find.byKey(const Key('items-list-view-builder'));
+    final item0 = find.byKey(const Key('item_0'));
+    final item1 = find.byKey(const Key('item_1'));
+
+    expect(listViewBuilder, findsOneWidget);
+    expect(item0, findsOneWidget);
+    expect(item1, findsOneWidget);
   });
 
   testWidgets(
@@ -97,9 +82,65 @@ void main() {
       (tester) async {
     arrangeStringListError();
     await tester.pumpWidget(createMainTestWidget());
-    await tester.pump();
 
     final errorMessage = find.byKey(const Key('list-error-message'));
     expect(errorMessage, findsOneWidget);
+  });
+
+  testWidgets(
+      'Check if a string from TextField can be added to a loaded string list after press on FAB',
+      (tester) async {
+    arrangeStringList();
+    await tester.pumpWidget(createMainTestWidget());
+    await tester.pumpAndSettle();
+
+    //Initial list loaded
+    final listViewBuilder = find.byKey(const Key('items-list-view-builder'));
+    final item0 = find.byKey(const Key('item_0'));
+    final item1 = find.byKey(const Key('item_1'));
+    expect(listViewBuilder, findsOneWidget);
+    expect(item0, findsOneWidget);
+    expect(item1, findsOneWidget);
+
+    //Add Text
+    final textField = find.byType(TextField);
+    await tester.enterText(textField, 'item added');
+
+    //Tap FAB and show ProgressIndicator
+    await tester.tap(find.byType(FloatingActionButton));
+    await tester.pump();
+    expect(find.byType(CircularProgressIndicator), findsOneWidget);
+    await tester.pumpAndSettle();
+
+    //Check if item is added to the list
+    expect(find.text('item added'), findsOneWidget);
+  });
+
+  testWidgets(
+      'show an error snackbar if user tries to add a forbidden string to string list after press on FAB',
+      (tester) async {
+    arrangeStringList();
+    await tester.pumpWidget(createMainTestWidget());
+    await tester.pumpAndSettle();
+
+    //Initial list loaded
+    final listViewBuilder = find.byKey(const Key('items-list-view-builder'));
+    final item0 = find.byKey(const Key('item_0'));
+    final item1 = find.byKey(const Key('item_1'));
+    expect(listViewBuilder, findsOneWidget);
+    expect(item0, findsOneWidget);
+    expect(item1, findsOneWidget);
+
+    //Add forbidden Text
+    final textField = find.byType(TextField);
+    await tester.enterText(textField, 'forbidden item');
+
+    //Tap FAB
+    await tester.tap(find.byType(FloatingActionButton));
+    await tester.pump();
+
+    //Check if snackbar appears and if item2 is not added to the list
+    expect(find.byKey(const Key('item_2')), findsNothing);
+    expect(find.byType(SnackBar), findsOneWidget);
   });
 }

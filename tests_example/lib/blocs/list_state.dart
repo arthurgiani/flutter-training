@@ -1,6 +1,13 @@
 /// States to be used in both [Bloc] and [ValueNotifier]
 
-enum ListStatus { initial, loadingList, loadedList, addingItem, error }
+enum ListStatus {
+  initial,
+  loadingList,
+  loadedList,
+  addingItem,
+  getStringListerror,
+  addItemError
+}
 
 class ListState {
   final String error;

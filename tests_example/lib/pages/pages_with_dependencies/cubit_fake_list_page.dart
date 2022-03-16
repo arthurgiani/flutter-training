@@ -30,26 +30,25 @@ class _CubitFakeListPageState extends State<CubitFakeListPage> {
           TextField(
             controller: itemTextController,
           ),
-          BlocBuilder<ListCubit, ListState>(
+          BlocConsumer<ListCubit, ListState>(
+            listener: (context, state) {
+              if (state.status == ListStatus.addItemError) {
+                ScaffoldMessenger.of(context).showSnackBar(
+                  const SnackBar(
+                    content: Text('Type a valid name'),
+                  ),
+                );
+              }
+              if (state.status == ListStatus.loadedList) {
+                itemTextController.clear();
+              }
+            },
             builder: (context, state) {
               if (state.status == ListStatus.loadingList) {
                 return const Expanded(
                     child: Center(child: CircularProgressIndicator()));
               }
-              if (state.status == ListStatus.loadedList) {
-                return Expanded(
-                  child: ListView.builder(
-                    itemCount: state.items.length,
-                    itemBuilder: (context, index) {
-                      final text = state.items[index];
-                      return ListTile(
-                        title: Text(text),
-                      );
-                    },
-                  ),
-                );
-              }
-              if (state.status == ListStatus.error) {
+              if (state.status == ListStatus.getStringListerror) {
                 return Center(
                   child: Text(
                     state.error,
@@ -57,16 +56,35 @@ class _CubitFakeListPageState extends State<CubitFakeListPage> {
                   ),
                 );
               }
-              return const Center(child: Text('Error'));
+              return Expanded(
+                child: ListView.builder(
+                  key: const Key('items-list-view-builder'),
+                  itemCount: state.items.length,
+                  itemBuilder: (context, index) {
+                    final text = state.items[index];
+                    return ListTile(
+                      key: Key('item_$index'),
+                      title: Text(text),
+                    );
+                  },
+                ),
+              );
             },
           ),
         ],
       ),
       floatingActionButton: FloatingActionButton(
-        child: const Icon(Icons.add),
+        child: BlocBuilder<ListCubit, ListState>(
+          builder: (context, state) {
+            if (state.status == ListStatus.addingItem) {
+              return const CircularProgressIndicator.adaptive();
+            } else {
+              return const Icon(Icons.add);
+            }
+          },
+        ),
         onPressed: () {
           context.read<ListCubit>().addItem(item: itemTextController.text);
-          itemTextController.clear();
         },
       ),
     );
