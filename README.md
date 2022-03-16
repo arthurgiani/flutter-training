@@ -55,6 +55,11 @@
 - [Flutter Explained - Unit Testing](https://www.youtube.com/watch?v=C1kzJH8SiuE&t=701s)
 - [Unit Testing Flutterando Playlist (PT-BR)](https://www.youtube.com/watch?v=zlYQe-9QMug&list=PLlBnICoI-g-etEtbvgDnO40SYKOSktCj4)
 
+### Widget Testing
+- [Official Documentation](https://docs.flutter.dev/cookbook/testing/widget/introduction)
+- [Widget Testing - Reso Coder](https://www.youtube.com/watch?v=Ghqry5dtgH4&t=2389s)
+- [A deep dive into Widget Testing in Flutter](https://medium.com/flutter-community/a-deep-dive-into-widget-testing-in-flutter-part-i-e1bb07c73e10)
+
 ## 6. Clean Architecture
 - [Clean Architecture Playlist (PT-BR)](https://www.youtube.com/watch?v=VacEeKvY2bg&list=PLlBnICoI-g-d-v_fWlkZX2HRgHHPnJx9s)
 - [Clean Architechture Example - Reso Coder](https://www.youtube.com/watch?v=KjE2IDphA_U&list=PLB6lc7nQ1n4iYGE_khpXRdJkJEp9WOech)
