@@ -28,6 +28,9 @@ void main() {
     );
   }
 
+  //Dart test zone works different than the 'real' production zone.
+  //Test environment does not consider the fake 2 seconds delay in
+  //getStringList(), so we need to force another delay in 'thenAnswer'
   arrangeStringList() {
     when(() => listRepositoryMock.getStringList()).thenAnswer(
       (_) async {
@@ -37,6 +40,7 @@ void main() {
     );
   }
 
+  //TODO: Check why forced delays does not work on 'thenThrow'.
   arrangeStringListError() async {
     when(() => listRepositoryMock.getStringList()).thenThrow(Exception());
   }
@@ -60,6 +64,18 @@ void main() {
     final circularProgress = find.byType(CircularProgressIndicator);
 
     expect(circularProgress, findsOneWidget);
+
+    //Since we have a fake delay on arrangeStringList, pumpAndSettle needs to be
+    //activated in order to make sure that the test only ends after the last
+    //frame build.
+
+    //This is necessary because, even with fake delay on mock method,
+    //dart test environment does not consider that delay literally.
+    //It means that, inside the test, the '2 seconds delay' does not represent
+    //2 seconds delay 'in real life'. Threfore, if we remove pumpAndSettle,
+    //further methods will be executed while arrangeStringList is still running.
+    //The test will end, the widget tree will be disposed while the 'fake delay'
+    //is still happening, so it will cause a Pending Time error.
     await tester.pumpAndSettle();
   });
 

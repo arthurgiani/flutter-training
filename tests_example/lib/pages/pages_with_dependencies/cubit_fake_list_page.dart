@@ -46,7 +46,8 @@ class _CubitFakeListPageState extends State<CubitFakeListPage> {
             builder: (context, state) {
               if (state.status == ListStatus.loadingList) {
                 return const Expanded(
-                    child: Center(child: CircularProgressIndicator()));
+                  child: Center(child: CircularProgressIndicator()),
+                );
               }
               if (state.status == ListStatus.getStringListerror) {
                 return Center(
