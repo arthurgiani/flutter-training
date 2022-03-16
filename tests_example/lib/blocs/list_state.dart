@@ -1,5 +1,3 @@
-/// States to be used in both [Bloc] and [ValueNotifier]
-
 enum ListStatus {
   initial,
   loadingList,
