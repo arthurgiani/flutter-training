@@ -28,7 +28,7 @@ class _DependenciesIntroPageState extends State<DependenciesIntroPage> {
               nextWidget: BlocProvider(
                 create: (context) => ListCubit(
                   listRepository: ListRepository(),
-                )..getStringList(),
+                ),
                 child: const CubitFakeListPage(),
               ),
             ),
