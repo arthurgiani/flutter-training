@@ -15,8 +15,6 @@ void main() {
     listRepositoryMock = ListRepositoryMock();
   });
 
-  final strings = ['String 1', 'String 2'];
-
   Widget createMainTestWidget() {
     return MaterialApp(
       home: BlocProvider(
@@ -27,6 +25,8 @@ void main() {
       ),
     );
   }
+
+  final strings = ['String 1', 'String 2'];
 
   //Dart test zone works different than the 'real' production zone.
   //Test environment does not consider the fake 2 seconds delay in
@@ -45,6 +45,20 @@ void main() {
     when(() => listRepositoryMock.getStringList()).thenThrow(Exception());
   }
 
+  Future arrangeLoadedList(WidgetTester tester) async {
+    arrangeStringList();
+    await tester.pumpWidget(createMainTestWidget());
+    await tester.pumpAndSettle();
+
+    final listViewBuilder = find.byKey(const Key('items-list-view-builder'));
+    final item0 = find.byKey(const Key('item_0'));
+    final item1 = find.byKey(const Key('item_1'));
+
+    expect(listViewBuilder, findsOneWidget);
+    expect(item0, findsOneWidget);
+    expect(item1, findsOneWidget);
+  }
+
   testWidgets('find app bar title ...', (tester) async {
     arrangeStringList();
     await tester.pumpWidget(createMainTestWidget());
@@ -52,6 +66,7 @@ void main() {
     final appBarTitle = find.text('Fake List - Cubit');
 
     expect(appBarTitle, findsOneWidget);
+
     await tester.pumpAndSettle();
   });
 
@@ -80,17 +95,7 @@ void main() {
   });
 
   testWidgets('display string list after loading', (tester) async {
-    arrangeStringList();
-    await tester.pumpWidget(createMainTestWidget());
-    await tester.pumpAndSettle();
-
-    final listViewBuilder = find.byKey(const Key('items-list-view-builder'));
-    final item0 = find.byKey(const Key('item_0'));
-    final item1 = find.byKey(const Key('item_1'));
-
-    expect(listViewBuilder, findsOneWidget);
-    expect(item0, findsOneWidget);
-    expect(item1, findsOneWidget);
+    await arrangeLoadedList(tester);
   });
 
   testWidgets(
@@ -106,17 +111,7 @@ void main() {
   testWidgets(
       'Check if a string from TextField can be added to a loaded string list after press on FAB',
       (tester) async {
-    arrangeStringList();
-    await tester.pumpWidget(createMainTestWidget());
-    await tester.pumpAndSettle();
-
-    //Initial list loaded
-    final listViewBuilder = find.byKey(const Key('items-list-view-builder'));
-    final item0 = find.byKey(const Key('item_0'));
-    final item1 = find.byKey(const Key('item_1'));
-    expect(listViewBuilder, findsOneWidget);
-    expect(item0, findsOneWidget);
-    expect(item1, findsOneWidget);
+    await arrangeLoadedList(tester);
 
     //Add Text
     final textField = find.byType(TextField);
@@ -129,23 +124,13 @@ void main() {
     await tester.pumpAndSettle();
 
     //Check if item is added to the list
-    expect(find.text('item added'), findsOneWidget);
+    expect(find.byKey(const Key('item_2')), findsOneWidget);
   });
 
   testWidgets(
       'show an error snackbar if user tries to add a forbidden string to string list after press on FAB',
       (tester) async {
-    arrangeStringList();
-    await tester.pumpWidget(createMainTestWidget());
-    await tester.pumpAndSettle();
-
-    //Initial list loaded
-    final listViewBuilder = find.byKey(const Key('items-list-view-builder'));
-    final item0 = find.byKey(const Key('item_0'));
-    final item1 = find.byKey(const Key('item_1'));
-    expect(listViewBuilder, findsOneWidget);
-    expect(item0, findsOneWidget);
-    expect(item1, findsOneWidget);
+    await arrangeLoadedList(tester);
 
     //Add forbidden Text
     final textField = find.byType(TextField);
