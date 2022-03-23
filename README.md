@@ -64,7 +64,13 @@
 - [Clean Architecture Playlist (PT-BR)](https://www.youtube.com/watch?v=VacEeKvY2bg&list=PLlBnICoI-g-d-v_fWlkZX2HRgHHPnJx9s)
 - [Clean Architechture Example - Reso Coder](https://www.youtube.com/watch?v=KjE2IDphA_U&list=PLB6lc7nQ1n4iYGE_khpXRdJkJEp9WOech)
 
-## 7. Useful Flutter Tips
+### 7. Animations
+- [Animations Tutorial Guide](https://github.com/arthurgiani/flutter-animation-guide)
+- [How to make animations in the right way](https://www.youtube.com/watch?v=wnARLByOtKA&t=1942s)
+- [All about animations (PT-BR)](https://www.youtube.com/watch?v=XM-8UTkFr4c)
+- [Custom Switcher using animations (PT-BR)](youtube.com/watch?v=666bli4NU14)
+
+## 8. Useful Flutter Tips
 - [Widget of The Week](https://www.youtube.com/watch?v=8ZaFk0yvNlI&list=PLjxrf2q8roU23XGwz3Km7sQZFTdB996iG)
 - [Widgets Catalog](https://docs.flutter.dev/development/ui/widgets)
 - [Flutter Layout Cheatsheet](https://medium.com/flutter-community/flutter-layout-cheat-sheet-5363348d037e)
