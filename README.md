@@ -64,11 +64,17 @@
 - [Clean Architecture Playlist (PT-BR)](https://www.youtube.com/watch?v=VacEeKvY2bg&list=PLlBnICoI-g-d-v_fWlkZX2HRgHHPnJx9s)
 - [Clean Architechture Example - Reso Coder](https://www.youtube.com/watch?v=KjE2IDphA_U&list=PLB6lc7nQ1n4iYGE_khpXRdJkJEp9WOech)
 
-### 7. Animations
+## 7. Animations
 - [Animations Tutorial Guide](https://github.com/arthurgiani/flutter-animation-guide)
 - [How to make animations in the right way](https://www.youtube.com/watch?v=wnARLByOtKA&t=1942s)
 - [All about animations (PT-BR)](https://www.youtube.com/watch?v=XM-8UTkFr4c)
 - [Custom Switcher using animations (PT-BR)](youtube.com/watch?v=666bli4NU14)
+
+## 8. Internationalization/Localization
+- [Official Documentation](https://docs.flutter.dev/development/accessibility-and-localization/internationalization)
+- [A Guide to Flutter Localization](https://phrase.com/blog/posts/flutter-localization/)
+- [Internationalization User Guide](https://docs.google.com/document/d/10e0saTfAv32OZLRmONy866vnaw0I2jwL8zukykpgWBc/edit)
+- [Flutter internationalization with .arb files](https://localizely.com/flutter-arb/)
 
 ## 8. Useful Flutter Tips
 - [Widget of The Week](https://www.youtube.com/watch?v=8ZaFk0yvNlI&list=PLjxrf2q8roU23XGwz3Km7sQZFTdB996iG)
