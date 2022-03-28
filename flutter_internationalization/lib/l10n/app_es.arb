@@ -1,0 +1,4 @@
+{
+    "helloWorld": "¡Hola Mundo!",
+    "fakeUsername": "¡Hola, {username}!"
+}
