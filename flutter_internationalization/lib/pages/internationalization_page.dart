@@ -5,10 +5,9 @@ import 'package:flutter_internationalization/pages/variable_string_page.dart';
 import 'hello_world_page.dart';
 
 class InternationalizationPage extends StatefulWidget {
-  const InternationalizationPage({Key? key, required this.title})
-      : super(key: key);
-
-  final String title;
+  const InternationalizationPage({
+    Key? key,
+  }) : super(key: key);
 
   @override
   State<InternationalizationPage> createState() =>
@@ -20,7 +19,7 @@ class _InternationalizationPageState extends State<InternationalizationPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text(widget.title),
+        title: const Text('Intro Page'),
       ),
       body: Center(
         child: Column(
