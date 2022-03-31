@@ -28,8 +28,63 @@ class _DirectionalityPageState extends State<DirectionalityPage> {
         },
       ),
       body: Column(
-        mainAxisAlignment: MainAxisAlignment.center,
-        children: const [],
+        crossAxisAlignment: CrossAxisAlignment.stretch,
+        children: const [
+          _WrongCardWidget(),
+          _CorrectCardWidget(),
+        ],
+      ),
+    );
+  }
+}
+
+class _WrongCardWidget extends StatelessWidget {
+  const _WrongCardWidget({
+    Key? key,
+  }) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return Card(
+      color: Colors.grey.shade300,
+      child: Row(
+        children: [
+          Container(
+            margin: const EdgeInsets.only(right: 32),
+            height: 100,
+            width: 100,
+            color: Colors.black,
+          ),
+          const Expanded(
+            child: Text('Wrong Margin Card'),
+          ),
+        ],
+      ),
+    );
+  }
+}
+
+class _CorrectCardWidget extends StatelessWidget {
+  const _CorrectCardWidget({
+    Key? key,
+  }) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return Card(
+      color: Colors.grey.shade300,
+      child: Row(
+        children: [
+          Container(
+            margin: const EdgeInsetsDirectional.only(end: 32),
+            height: 100,
+            width: 100,
+            color: Colors.black,
+          ),
+          const Expanded(
+            child: Text('Correct Margin Card'),
+          ),
+        ],
       ),
     );
   }

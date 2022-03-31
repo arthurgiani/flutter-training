@@ -5,10 +5,10 @@ import 'package:flutter_internationalization/pages/datetime_page.dart';
 import 'package:flutter_internationalization/pages/directionality_page.dart';
 import 'package:flutter_internationalization/pages/gender_page.dart';
 import 'package:flutter_internationalization/pages/plural_page.dart';
-import 'package:flutter_internationalization/pages/remote_config_page.dart';
 import 'package:flutter_internationalization/pages/variable_string_page.dart';
 
 import 'hello_world_page.dart';
+import 'remote_config_page.dart';
 
 class InternationalizationPage extends StatefulWidget {
   const InternationalizationPage({

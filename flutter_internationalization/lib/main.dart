@@ -1,11 +1,19 @@
+import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:flutter_internationalization/cubit/locale_cubit.dart';
 import 'package:flutter_internationalization/cubit/locale_state.dart';
 import 'package:flutter_internationalization/pages/internationalization_page.dart';
+import 'package:flutter_internationalization/remote_config/remote_config_service.dart';
 
-void main() {
+void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  await Firebase.initializeApp();
+  RemoteConfigService.instance.initRemoteConfig();
+  await RemoteConfigService.instance.setDefaultValues();
+  await RemoteConfigService.instance.updateValues();
+
   runApp(const MyApp());
 }
 
