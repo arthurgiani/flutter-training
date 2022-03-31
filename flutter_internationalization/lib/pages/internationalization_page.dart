@@ -1,5 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_internationalization/components/custom_button.dart';
+import 'package:flutter_internationalization/pages/currency_page.dart';
+import 'package:flutter_internationalization/pages/datetime_page.dart';
+import 'package:flutter_internationalization/pages/directionality_page.dart';
+import 'package:flutter_internationalization/pages/gender_page.dart';
+import 'package:flutter_internationalization/pages/plural_page.dart';
+import 'package:flutter_internationalization/pages/remote_config_page.dart';
 import 'package:flutter_internationalization/pages/variable_string_page.dart';
 
 import 'hello_world_page.dart';
@@ -32,6 +38,30 @@ class _InternationalizationPageState extends State<InternationalizationPage> {
             CustomButton(
               label: 'Variable String',
               nextWidget: VariableStringPage(),
+            ),
+            CustomButton(
+              label: 'Plural',
+              nextWidget: PluralPage(),
+            ),
+            CustomButton(
+              label: 'Gender',
+              nextWidget: GenderPage(),
+            ),
+            CustomButton(
+              label: 'Currency',
+              nextWidget: CurrencyPage(),
+            ),
+            CustomButton(
+              label: 'DateTime',
+              nextWidget: DateTimePage(),
+            ),
+            CustomButton(
+              label: 'Directionality',
+              nextWidget: DirectionalityPage(),
+            ),
+            CustomButton(
+              label: 'Remote Config',
+              nextWidget: RemoteConfigPage(),
             ),
           ],
         ),

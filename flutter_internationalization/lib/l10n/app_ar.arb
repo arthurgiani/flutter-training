@@ -1,0 +1,8 @@
+{
+    "helloWorld": "مرحبا بالعالم",
+    "fakeUsername": "أهلا {username}",
+    "pluralExample": "{count, plural, =0{لا رسائل} =1{بطل t}} other{لديك {count} رسائل}", 
+    "genderExample": "{sex, select, male{عيد ميلاده} female{عيد ميلادها} other{عيد ميلادهم}}",
+    "currencyExample": "{value}",
+    "datetimeExample": "{value}"
+}

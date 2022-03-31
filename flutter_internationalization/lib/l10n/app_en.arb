@@ -1,15 +1,53 @@
 {
-    "helloWorld": "Hello World!",
-    "@helloWorld": {
-      "description": "The conventional newborn programmer greeting"
-    },
-    "fakeUsername": "Hello, {username}!",
-    "@fakeUsername": {
-      "placeholders": {
-        "username":{
-          "type": "String",
-          "example": "Any Name"
-        }
+  "helloWorld": "Hello World!",
+  "@helloWorld": {
+    "description": "The conventional newborn programmer greeting"
+  },
+  "fakeUsername": "Hello, {username}!",
+  "@fakeUsername": {
+    "placeholders": {
+      "username": {
+        "type": "String",
+        "example": "Any Name"
       }
     }
+  },
+  "pluralExample": "{count, plural, =0{No messages} =1{You have 1 message} other{You have {count} messages}}",
+  "@pluralExample": {
+    "placeholders": {
+      "count": {
+        "type": "int",
+        "example": "10"
+      }
+    }
+  },
+  "genderExample": "{sex, select, male{His birthday} female{Her birthday} other{Their birthday}}",
+  "@genderExample": {
+    "placeholders": {
+      "sex": {
+        "type": "String",
+        "example": "male"
+      }
+    }
+  },
+  "currencyExample": "{value}",
+  "@currencyExample": {
+    "placeholders": {
+      "value": {
+        "type": "int",
+        "example": "100",
+        "format": "simpleCurrency"
+      }
+    }
+  },
+  "datetimeExample": "{value}",
+  "@datetimeExample": {
+    "placeholders": {
+      "value": {
+        "type": "DateTime",
+        "example": "DateTime(2022,3,30)",
+        "format": "yMd"
+      }
+    }
+  }
 }

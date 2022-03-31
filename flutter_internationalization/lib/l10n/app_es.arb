@@ -1,4 +1,8 @@
 {
     "helloWorld": "¡Hola Mundo!",
-    "fakeUsername": "¡Hola, {username}!"
+    "fakeUsername": "¡Hola, {username}!",
+    "pluralExample": "{count, plural, =0{Ningún mensaje} =1{tienes 1 mensaje} other{tienes {count} mensajes}}",
+    "genderExample": "{sex, select, male{Su cumpleaños} female{Su cumpleaños} other{su cumpleaños}}",
+    "currencyExample": "{value}", 
+    "datetimeExample": "{value}"
 }
