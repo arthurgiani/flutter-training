@@ -71,12 +71,16 @@
 - [Custom Switcher using animations (PT-BR)](youtube.com/watch?v=666bli4NU14)
 
 ## 8. Internationalization/Localization
+### Offline
 - [Official Documentation](https://docs.flutter.dev/development/accessibility-and-localization/internationalization)
 - [A Guide to Flutter Localization](https://phrase.com/blog/posts/flutter-localization/)
 - [Internationalization User Guide](https://docs.google.com/document/d/10e0saTfAv32OZLRmONy866vnaw0I2jwL8zukykpgWBc/edit)
 - [Flutter internationalization with .arb files](https://localizely.com/flutter-arb/)
 
-## 8. Useful Flutter Tips
+## Online
+- [Localization with FirebaseRemoteConfig](https://firebase.flutter.dev/docs/remote-config/overview/)
+
+## 9. Useful Flutter Tips
 - [Widget of The Week](https://www.youtube.com/watch?v=8ZaFk0yvNlI&list=PLjxrf2q8roU23XGwz3Km7sQZFTdB996iG)
 - [Widgets Catalog](https://docs.flutter.dev/development/ui/widgets)
 - [Flutter Layout Cheatsheet](https://medium.com/flutter-community/flutter-layout-cheat-sheet-5363348d037e)
