@@ -2,6 +2,7 @@
 
 ## 1. Dart Language
 ### Basic
+- [Dart Basics (Examples, Cheatsheets and Exercises)](https://github.com/arthurgiani/flutter-training/tree/main/dart_basics)
 - [A tour of the Dart language](https://dart.dev/guides/language/language-tour)
 - [Dart Complete Course - Flutterly](https://www.youtube.com/watch?v=F3JuuYuOUK4)
 
