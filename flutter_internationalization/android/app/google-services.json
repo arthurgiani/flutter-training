@@ -1,0 +1,46 @@
+{
+  "project_info": {
+    "project_number": "570375497033",
+    "project_id": "remote-config-c8459",
+    "storage_bucket": "remote-config-c8459.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:570375497033:android:b5e9d4fdfce0c518b9a698",
+        "android_client_info": {
+          "package_name": "com.example.flutter_internationalization"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "570375497033-umqjnrsai4qdk13nn6aoo3b7qh77d5t3.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBI_djsKZWtd6moZnyW9e4Rs5MTiLjAxi8"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "570375497033-umqjnrsai4qdk13nn6aoo3b7qh77d5t3.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "570375497033-7hpetcl3atu815vmn079ng2qhq4c13jm.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.example.flutterInternationalization"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
