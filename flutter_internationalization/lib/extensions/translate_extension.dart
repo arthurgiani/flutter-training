@@ -7,10 +7,8 @@ extension TranslateExtension on BuildContext {
 }
 
 extension RemoteConfigExtension on String {
-  String i18n({
-    required Locale locale,
-  }) {
-    return RemoteConfigService.instance.getlocalizedValue(
+  String i18n({required Locale locale}) {
+    return RemoteConfigService.instance.getLocalizedValue(
       locale: locale,
       key: this,
     );

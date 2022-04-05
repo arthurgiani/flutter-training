@@ -11,9 +11,8 @@ void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await Firebase.initializeApp();
   RemoteConfigService.instance.initRemoteConfig();
-  await RemoteConfigService.instance.setDefaultValues();
-  await RemoteConfigService.instance.updateValues();
-
+  await RemoteConfigService.instance.setDefaultValue();
+  await RemoteConfigService.instance.updateValue();
   runApp(const MyApp());
 }
 
@@ -24,7 +23,10 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return BlocProvider(
       create: (context) => LocaleCubit(),
-      child: BlocBuilder<LocaleCubit, LocaleState>(
+      child: BlocConsumer<LocaleCubit, LocaleState>(
+        listener: (context, state) async {
+          await RemoteConfigService.instance.updateValue();
+        },
         builder: (context, state) {
           return MaterialApp(
             title: 'Flutter Demo',

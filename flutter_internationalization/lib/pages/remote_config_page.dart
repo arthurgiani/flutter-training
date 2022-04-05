@@ -29,8 +29,18 @@ class _RemoteConfigPageState extends State<RemoteConfigPage> {
         },
       ),
       body: Center(
-        child: Text(
-          'first_string'.i18n(locale: currentLocale),
+        child: Column(
+          children: [
+            Text(
+              "first_string".i18n(locale: currentLocale),
+            ),
+            Text(
+              "second_string".i18n(locale: currentLocale),
+            ),
+            Text(
+              "third_string".i18n(locale: currentLocale),
+            ),
+          ],
         ),
       ),
     );

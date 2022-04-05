@@ -14,30 +14,30 @@ class RemoteConfigService {
     firebaseRemoteConfig = FirebaseRemoteConfig.instance;
   }
 
-  Map<String, dynamic> defaultValuesMap = {
+  Map<String, dynamic> cachedMap = {
     "first_string": "default first",
     "second_string": "default second",
-    "third_string": "default third"
+    "third_string": "default third",
   };
 
-  Future<void> setDefaultValues() async {
-    await firebaseRemoteConfig.setDefaults(defaultValuesMap);
+  Future<void> setDefaultValue() async {
+    await firebaseRemoteConfig.setDefaults(cachedMap);
   }
 
-  Future<void> updateValues() async {
+  Future<void> updateValue() async {
     await firebaseRemoteConfig.fetchAndActivate();
   }
 
-  String getlocalizedValue({
+  String getLocalizedValue({
     required Locale locale,
     required String key,
   }) {
-    final data = firebaseRemoteConfig.getString(locale.toString());
-    final bool isDefaultValuesStillValid = data.isEmpty;
-    if (isDefaultValuesStillValid) {
-      return defaultValuesMap[key];
+    final localeString = locale.toString();
+    final data = firebaseRemoteConfig.getString(localeString);
+    if (data.isEmpty) {
+      return cachedMap[key];
     }
-    final Map<String, dynamic> map = jsonDecode(data);
-    return map[key] ?? '';
+    final Map<String, dynamic> decodedJson = jsonDecode(data);
+    return decodedJson[key];
   }
 }
