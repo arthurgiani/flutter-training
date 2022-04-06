@@ -13,6 +13,10 @@
   - [CheatSheet: Lists](https://api.dart.dev/stable/2.16.2/dart-core/List-class.html)
   - [Practice Exercises(PT-BR)](https://gist.github.com/arthurgiani/e1b0d465d8e49487254b35a81f2ce5bc)
 
+  #### Maps
+  - [Documentation](https://api.dart.dev/stable/2.15.1/dart-core/Map-class.html)
+  - [Practice Exercises(PT-BR)](https://gist.github.com/arthurgiani/d9ce87e85b28ce0fe0a91b3cfc20cddb)
+
 
 ### 2.Conditional/Repetition Statements
   - [if/else/else if](https://dartpad.dev/?id=4bf1a3ca3975ed00cbe23a6238574fb0)
