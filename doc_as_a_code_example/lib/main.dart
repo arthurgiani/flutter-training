@@ -1,3 +1,4 @@
+import 'package:doc_example/doc_example.dart';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -49,6 +50,17 @@ class MyHomePage extends StatefulWidget {
 
 class _MyHomePageState extends State<MyHomePage> {
   int _counter = 0;
+  late final Calculator calculator;
+
+  @override
+  void initState() {
+    calculator = Calculator(10, 20);
+    calculator.sum();
+    calculator.divide();
+    calculator.multiply();
+    calculator.subtract();
+    super.initState();
+  }
 
   void _incrementCounter() {
     setState(() {
