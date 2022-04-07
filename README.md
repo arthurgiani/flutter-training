@@ -81,7 +81,13 @@
 ## Online
 - [Localization with FirebaseRemoteConfig](https://firebase.flutter.dev/docs/remote-config/overview/)
 
-## 9. Useful Flutter Tips
+## 9. Doc as a Code
+- [Creating a package](https://dart.dev/guides/libraries/create-library-packages)
+- [Package Conventions](https://dart.dev/tools/pub/package-layout)
+- [Documentation Good Practices](https://dart.dev/guides/language/effective-dart/documentation)
+- [Generate beautiful documentation with Dart Doc](https://pub.dev/packages/dartdoc)
+
+## 10. Useful Flutter Tips
 - [Widget of The Week](https://www.youtube.com/watch?v=8ZaFk0yvNlI&list=PLjxrf2q8roU23XGwz3Km7sQZFTdB996iG)
 - [Widgets Catalog](https://docs.flutter.dev/development/ui/widgets)
 - [Flutter Layout Cheatsheet](https://medium.com/flutter-community/flutter-layout-cheat-sheet-5363348d037e)
