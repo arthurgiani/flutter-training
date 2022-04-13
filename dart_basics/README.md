@@ -22,3 +22,6 @@
   - [if/else/else if](https://dartpad.dev/?id=4bf1a3ca3975ed00cbe23a6238574fb0)
   - [Switch Case](https://dartpad.dev/?id=00d041493db7fbcaf87420a76bd867f9)
   - [for loop/while/ do-while](https://dartpad.dev/?id=4270261c9c8a57af15715b42776d48b8)
+
+### 3. OOP
+  - [Exercises (PT-BR)](https://gist.github.com/arthurgiani/0f03db7bd185e81433fb326217e78131)
