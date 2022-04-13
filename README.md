@@ -87,7 +87,7 @@
 - [Documentation Good Practices](https://dart.dev/guides/language/effective-dart/documentation)
 - [Generate beautiful documentation with Dart Doc](https://pub.dev/packages/dartdoc)
 
-## 10. Platform Channel (Android/iOS
+## 10. Platform Channel (Android/iOS)
 - [Official Documentation](https://docs.flutter.dev/development/platform-integration/platform-channels?tab=type-mappings-kotlin-tab)
 - [How to use invokeMethod](https://api.flutter.dev/flutter/services/MethodChannel/invokeMethod.html)
 
