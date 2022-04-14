@@ -10,10 +10,12 @@ import android.os.Build.VERSION_CODES
 import androidx.annotation.NonNull
 import io.flutter.embedding.android.FlutterActivity
 import io.flutter.embedding.engine.FlutterEngine
+import io.flutter.plugin.common.EventChannel
 import io.flutter.plugin.common.MethodChannel
 
 class MainActivity : FlutterActivity() {
     private val channel = "test_method_channel"
+    private val eventChannel = "test.event.channel/connectivity"
 
     override fun configureFlutterEngine(@NonNull flutterEngine: FlutterEngine) {
         super.configureFlutterEngine(flutterEngine)
@@ -34,6 +36,9 @@ class MainActivity : FlutterActivity() {
                 result.success(list)
             }
         }
+
+        EventChannel(flutterEngine.dartExecutor.binaryMessenger, eventChannel)
+                .setStreamHandler(RandomNumberStreamHandler())
     }
 
     private fun getBatteryLevel(): Int {
