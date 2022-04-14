@@ -7,7 +7,7 @@ class PlatformChannelHandler {
 
   Future<int> getBatteryLevel() async {
     final result = await methodChannel.invokeMethod<int>('getBattery');
-    return result ?? 0;
+    return result!;
   }
 
   Future<String> getWelcomeMessage() async {
@@ -15,18 +15,18 @@ class PlatformChannelHandler {
       'getWelcomeMessage',
       {"name": "rafael"},
     );
-    return result ?? '';
+    return result!;
   }
 
   Future<String> getWelcomeMessageError() async {
     final result = await methodChannel.invokeMethod<String>(
       'getWelcomeMessage',
     );
-    return result ?? '';
+    return result!;
   }
 
   Future<List<int>> getIntList() async {
     final result = await methodChannel.invokeListMethod<int>('int_list');
-    return result ?? [];
+    return result!;
   }
 }
