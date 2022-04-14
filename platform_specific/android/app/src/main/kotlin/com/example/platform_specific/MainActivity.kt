@@ -15,30 +15,25 @@ import io.flutter.plugin.common.MethodChannel
 
 class MainActivity : FlutterActivity() {
     private val channel = "test_method_channel"
-    private val eventChannel = "test.event.channel/connectivity"
 
     override fun configureFlutterEngine(@NonNull flutterEngine: FlutterEngine) {
         super.configureFlutterEngine(flutterEngine)
-        MethodChannel(flutterEngine.dartExecutor.binaryMessenger, channel).setMethodCallHandler {
-            call, result ->
-            if(call.method == "getBattery") {
+        MethodChannel(flutterEngine.dartExecutor.binaryMessenger, channel).setMethodCallHandler { call, result ->
+            if (call.method == "getBattery") {
                 val battery: Int = getBatteryLevel()
                 result.success(battery)
-            }else if(call.method == "getWelcomeMessage") {
+            } else if (call.method == "getWelcomeMessage") {
                 val name: String? = call.argument<String>("name")
-                if(name != null){
+                if (name != null) {
                     result.success("Hello, $name")
-                }else{
+                } else {
                     result.error("NULL_NAME_ERROR", "Please, send a name", null)
                 }
-            }else if (call.method == "int_list") {
-                val list = listOf<Int>(1,2,3,4,5)
+            } else if (call.method == "int_list") {
+                val list = listOf<Int>(1, 2, 3, 4, 5)
                 result.success(list)
             }
         }
-
-        EventChannel(flutterEngine.dartExecutor.binaryMessenger, eventChannel)
-                .setStreamHandler(RandomNumberStreamHandler())
     }
 
     private fun getBatteryLevel(): Int {

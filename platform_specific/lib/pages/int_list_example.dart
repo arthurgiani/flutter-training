@@ -23,21 +23,6 @@ class _IntListExamplePageState extends State<IntListExamplePage> {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            if (list.isEmpty) const Text('Get List'),
-            if (list.isNotEmpty)
-              ListView.separated(
-                separatorBuilder: (_, index) => const SizedBox(height: 8),
-                shrinkWrap: true,
-                itemCount: list.length,
-                itemBuilder: (_, index) {
-                  final item = list[index];
-                  return ListTile(
-                    title: Text(item.toString()),
-                    tileColor: Colors.grey.shade300,
-                  );
-                },
-              ),
-            const SizedBox(height: 100),
             ElevatedButton(
               onPressed: () async {
                 try {
