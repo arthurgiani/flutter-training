@@ -15,6 +15,7 @@ import io.flutter.plugin.common.MethodChannel
 
 class MainActivity : FlutterActivity() {
     private val channel = "test_method_channel"
+    private val eventChannel = "test.smartfit"
 
     override fun configureFlutterEngine(@NonNull flutterEngine: FlutterEngine) {
         super.configureFlutterEngine(flutterEngine)
@@ -32,8 +33,16 @@ class MainActivity : FlutterActivity() {
             } else if (call.method == "int_list") {
                 val list = listOf<Int>(1, 2, 3, 4, 5)
                 result.success(list)
+            } else if (call.method == "map_example") {
+                val map = mapOf<String,Int>("1" to 1, "2" to 2, "3" to 3)
+                result.success(map)
+            } else if (call.method == "json_example") {
+                val json: String = "[{\"name\":\"rafael\", \"age\":20}, {\"name\":\"arthur\", \"age\":20}]"
+                result.success(json)
             }
         }
+
+        EventChannel(flutterEngine.dartExecutor.binaryMessenger, "test.smartfit").setStreamHandler(RandomNumberStreamHandler())
     }
 
     private fun getBatteryLevel(): Int {

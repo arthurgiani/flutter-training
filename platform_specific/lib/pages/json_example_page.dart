@@ -1,19 +1,20 @@
 import 'dart:developer';
 
 import 'package:flutter/material.dart';
+import 'package:platform_specific/person.dart';
 
 import '../platform_channel_handler.dart';
 
-class IntListExamplePage extends StatefulWidget {
-  const IntListExamplePage({Key? key}) : super(key: key);
+class JsonExamplePage extends StatefulWidget {
+  const JsonExamplePage({Key? key}) : super(key: key);
 
   @override
-  _IntListExamplePageState createState() => _IntListExamplePageState();
+  _JsonExamplePageState createState() => _JsonExamplePageState();
 }
 
-class _IntListExamplePageState extends State<IntListExamplePage> {
+class _JsonExamplePageState extends State<JsonExamplePage> {
   final platformChannelHandler = PlatformChannelHandler();
-  List<int> list = [];
+  List<Person>? list;
 
   @override
   Widget build(BuildContext context) {
@@ -23,15 +24,16 @@ class _IntListExamplePageState extends State<IntListExamplePage> {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            if (list.isEmpty) const Text('Get List'),
-            if (list.isNotEmpty)
+            if (list == null) const Text('Get Persons'),
+            if (list != null)
               Expanded(
                 child: ListView.builder(
-                  itemCount: list.length,
+                  itemCount: list!.length,
                   itemBuilder: (_, index) {
-                    final item = list[index];
+                    final item = list![index];
                     return ListTile(
-                      title: Text(item.toString()),
+                      title: Text(item.name),
+                      subtitle: Text(item.age.toString()),
                     );
                   },
                 ),
@@ -40,7 +42,7 @@ class _IntListExamplePageState extends State<IntListExamplePage> {
             ElevatedButton(
               onPressed: () async {
                 try {
-                  final result = await platformChannelHandler.getIntList();
+                  final result = await platformChannelHandler.getPersons();
                   setState(() {
                     list = result;
                   });
@@ -48,7 +50,7 @@ class _IntListExamplePageState extends State<IntListExamplePage> {
                   log(error.toString());
                 }
               },
-              child: const Text('Get Int List'),
+              child: const Text('Get Persons'),
             )
           ],
         ),

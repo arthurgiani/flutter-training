@@ -2,7 +2,10 @@ import 'package:flutter/material.dart';
 import 'package:platform_specific/components/custom_button.dart';
 import 'package:platform_specific/pages/get_battery_level_page.dart';
 import 'package:platform_specific/pages/int_list_example.dart';
+import 'package:platform_specific/pages/json_example_page.dart';
+import 'package:platform_specific/pages/map_example_page.dart';
 import 'package:platform_specific/pages/method_with_parameters.dart';
+import 'package:platform_specific/pages/stream_example_page.dart';
 
 void main() {
   runApp(const MyApp());
@@ -54,6 +57,18 @@ class _MyHomePageState extends State<MyHomePage> {
             CustomButton(
               label: 'Int List Example',
               nextWidget: IntListExamplePage(),
+            ),
+            CustomButton(
+              label: 'Map Example Page',
+              nextWidget: MapExamplePage(),
+            ),
+            CustomButton(
+              label: 'Json Example Page',
+              nextWidget: JsonExamplePage(),
+            ),
+            CustomButton(
+              label: 'Stream Example Page',
+              nextWidget: StreamExamplePage(),
             )
           ],
         ),
