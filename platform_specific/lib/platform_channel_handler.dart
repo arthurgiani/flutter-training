@@ -1,7 +1,7 @@
 import 'dart:convert';
 
 import 'package:flutter/services.dart';
-import 'package:platform_specific/person.dart';
+import 'package:platform_specific/components/person.dart';
 
 class PlatformChannelHandler {
   final MethodChannel methodChannel = const MethodChannel(

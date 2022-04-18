@@ -1,7 +1,7 @@
 import 'dart:developer';
 
 import 'package:flutter/material.dart';
-import 'package:platform_specific/person.dart';
+import 'package:platform_specific/components/person.dart';
 
 import '../platform_channel_handler.dart';
 
