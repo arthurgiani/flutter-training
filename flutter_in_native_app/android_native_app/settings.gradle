@@ -1,0 +1,16 @@
+dependencyResolutionManagement {
+    repositoriesMode.set(RepositoriesMode.FAIL_ON_PROJECT_REPOS)
+    repositories {
+        google()
+        mavenCentral()
+        maven {
+            url '/Users/arthur/Desktop/Trabalho/FTEAM/Treinamentos/Smartfit/flutter-training/flutter_in_native_app/flutter_module/build/host/outputs/repo'
+        }
+        maven {
+            url "https://storage.googleapis.com/download.flutter.io"
+        }
+
+    }
+}
+rootProject.name = "My Application"
+include ':app'
