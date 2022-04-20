@@ -9,8 +9,14 @@ class FirstPage extends StatefulWidget {
 }
 
 class _FirstPageState extends State<FirstPage> {
-  static const MethodChannel methodChannel =
-      MethodChannel('android.native.app/test');
+  static const MethodChannel methodChannel = MethodChannel('native.app/test');
+  @override
+  void initState() {
+    super.initState();
+    methodChannel.setMethodCallHandler((call) async {
+      Navigator.of(context).pushNamed(call.arguments);
+    });
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -30,6 +36,7 @@ class _FirstPageState extends State<FirstPage> {
       ),
       floatingActionButton: FloatingActionButton(
         onPressed: () {
+          // Exit flutter app and return to native app.
           methodChannel.invokeMethod('exitModule');
         },
         tooltip: 'Increment',
