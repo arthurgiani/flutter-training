@@ -25,6 +25,7 @@ class MainActivity : AppCompatActivity() {
 
         // Instantiate a FlutterEngine.
         val flutterEngine = FlutterEngine(this)
+        flutterEngine.navigationChannel.setInitialRoute("/second");
 
         // Start executing Dart code to pre-warm the FlutterEngine.
         flutterEngine.dartExecutor.executeDartEntrypoint(
@@ -48,9 +49,7 @@ class MainActivity : AppCompatActivity() {
 
         binding.goToFlutterButton.setOnClickListener {
             startActivity(
-                TestFlutterActivity
-                    .withCachedEngine("any_engine_id")
-                    .build(this)
+                FlutterActivity.withCachedEngine("any_engine_id").build(this)
             )
         }
     }
