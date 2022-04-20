@@ -42,7 +42,7 @@ class MainActivity : FlutterActivity() {
             }
         }
 
-        EventChannel(flutterEngine.dartExecutor.binaryMessenger, "test.smartfit").setStreamHandler(RandomNumberStreamHandler())
+        EventChannel(flutterEngine.dartExecutor.binaryMessenger, eventChannel).setStreamHandler(RandomNumberStreamHandler())
     }
 
     private fun getBatteryLevel(): Int {
