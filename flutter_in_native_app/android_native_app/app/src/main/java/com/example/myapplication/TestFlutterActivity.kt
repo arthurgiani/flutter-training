@@ -6,7 +6,7 @@ import io.flutter.embedding.engine.FlutterEngineCache
 import io.flutter.plugin.common.MethodChannel
 
 class TestFlutterActivity: FlutterActivity() {
-    private val channel = "android.native.app/test"
+    private val channel = "native.app/test"
 
     companion object {
         fun withCachedEngine(engineId: String) = CustomCachedEngineIntentBuilder(engineId)

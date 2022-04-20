@@ -14,6 +14,7 @@ import io.flutter.embedding.android.FlutterActivity
 import io.flutter.embedding.engine.FlutterEngine
 import io.flutter.embedding.engine.FlutterEngineCache
 import io.flutter.embedding.engine.dart.DartExecutor
+import io.flutter.plugin.common.MethodChannel
 
 class MainActivity : AppCompatActivity() {
 
@@ -25,7 +26,6 @@ class MainActivity : AppCompatActivity() {
 
         // Instantiate a FlutterEngine.
         val flutterEngine = FlutterEngine(this)
-        flutterEngine.navigationChannel.setInitialRoute("/second");
 
         // Start executing Dart code to pre-warm the FlutterEngine.
         flutterEngine.dartExecutor.executeDartEntrypoint(
@@ -48,8 +48,15 @@ class MainActivity : AppCompatActivity() {
         setupActionBarWithNavController(navController, appBarConfiguration)
 
         binding.goToFlutterButton.setOnClickListener {
+            //Same MethodChannel as MethodChannel in
+            val channel = MethodChannel(flutterEngine.dartExecutor.binaryMessenger, "native.app/test")
+
+            //Set custom route on Flutter
+            channel.invokeMethod("changeRoute", "/second")
+
+            //Init Activity
             startActivity(
-                FlutterActivity.withCachedEngine("any_engine_id").build(this)
+                TestFlutterActivity.withCachedEngine("any_engine_id").build(this)
             )
         }
     }
