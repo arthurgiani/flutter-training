@@ -35,14 +35,12 @@ class PlatformChannelHandler {
     return result!;
   }
 
-  //map
   Future<Map<String, int>> getMap() async {
     final result =
         await methodChannel.invokeMapMethod<String, int>('map_example');
     return result!;
   }
 
-  //objetos complexos (json)
   Future<List<Person>> getPersons() async {
     final result = await methodChannel.invokeMethod<String>('json_example');
     final List mapResult = jsonDecode(result!);
