@@ -6,21 +6,25 @@
 //
 
 import UIKit
+import Flutter
+
 
 class ViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        print("inicio")
     }
 
     @IBAction func goTo(_ sender: UIButton) {
-        self.showFlutterPage()
+        self.showFlutter()
     }
     
-    func showFlutterPage() {
-        let flutterPage = FlutterModulePage1ViewController()
-        self.present(flutterPage, animated: true, completion: ({}))
+    @objc func showFlutter() {
+        let flutterEngine = (UIApplication.shared.delegate as! AppDelegate).flutterEngine
+        let flutterViewController =
+        FlutterViewController(engine: flutterEngine, nibName: nil, bundle: nil)
+        flutterViewController.pushRoute("/second")
+        present(flutterViewController, animated: true, completion: nil)
     }
 }
 
