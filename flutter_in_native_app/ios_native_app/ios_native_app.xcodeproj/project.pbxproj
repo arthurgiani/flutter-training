@@ -13,8 +13,6 @@
 		8E8FDDF228132CC2007258A9 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8E8FDDF028132CC2007258A9 /* Main.storyboard */; };
 		8E8FDDF428132CC3007258A9 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8E8FDDF328132CC3007258A9 /* Assets.xcassets */; };
 		8E8FDDF728132CC3007258A9 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8E8FDDF528132CC3007258A9 /* LaunchScreen.storyboard */; };
-		8EE17C5228132E8E0037A69A /* FlutterEngineViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EE17C5128132E8E0037A69A /* FlutterEngineViewController.swift */; };
-		8EE17C5428132EA40037A69A /* FlutterEngine.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8EE17C5328132EA40037A69A /* FlutterEngine.storyboard */; };
 		916F0A8D5703987870591AA3 /* Pods_ios_native_app.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 79939DB52DBA1A208BCAACDD /* Pods_ios_native_app.framework */; };
 /* End PBXBuildFile section */
 
@@ -30,8 +28,6 @@
 		8E8FDDF328132CC3007258A9 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		8E8FDDF628132CC3007258A9 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		8E8FDDF828132CC3007258A9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		8EE17C5128132E8E0037A69A /* FlutterEngineViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlutterEngineViewController.swift; sourceTree = "<group>"; };
-		8EE17C5328132EA40037A69A /* FlutterEngine.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = FlutterEngine.storyboard; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -84,7 +80,6 @@
 		8E8FDDE928132CC2007258A9 /* ios_native_app */ = {
 			isa = PBXGroup;
 			children = (
-				8EE17C5028132E660037A69A /* Flutter */,
 				8E8FDDEA28132CC2007258A9 /* AppDelegate.swift */,
 				8E8FDDEC28132CC2007258A9 /* SceneDelegate.swift */,
 				8E8FDDEE28132CC2007258A9 /* ViewController.swift */,
@@ -94,15 +89,6 @@
 				8E8FDDF828132CC3007258A9 /* Info.plist */,
 			);
 			path = ios_native_app;
-			sourceTree = "<group>";
-		};
-		8EE17C5028132E660037A69A /* Flutter */ = {
-			isa = PBXGroup;
-			children = (
-				8EE17C5128132E8E0037A69A /* FlutterEngineViewController.swift */,
-				8EE17C5328132EA40037A69A /* FlutterEngine.storyboard */,
-			);
-			path = Flutter;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -169,7 +155,6 @@
 				8E8FDDF728132CC3007258A9 /* LaunchScreen.storyboard in Resources */,
 				8E8FDDF428132CC3007258A9 /* Assets.xcassets in Resources */,
 				8E8FDDF228132CC2007258A9 /* Main.storyboard in Resources */,
-				8EE17C5428132EA40037A69A /* FlutterEngine.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -233,7 +218,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				8E8FDDEF28132CC2007258A9 /* ViewController.swift in Sources */,
-				8EE17C5228132E8E0037A69A /* FlutterEngineViewController.swift in Sources */,
 				8E8FDDEB28132CC2007258A9 /* AppDelegate.swift in Sources */,
 				8E8FDDED28132CC2007258A9 /* SceneDelegate.swift in Sources */,
 			);
