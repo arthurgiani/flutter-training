@@ -1,3 +1,5 @@
+import 'dart:io';
+
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
@@ -36,7 +38,10 @@ class _FirstPageState extends State<FirstPage> {
       ),
       floatingActionButton: FloatingActionButton(
         onPressed: () {
-          // Exit flutter app and return to native app.
+          if (Platform.isIOS) {
+            SystemNavigator.pop();
+          }
+          // Exit flutter app and return to native app (Android only).
           methodChannel.invokeMethod('exitModule');
         },
         tooltip: 'Increment',
