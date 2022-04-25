@@ -13,7 +13,7 @@ import FlutterPluginRegistrant
 @main
 class AppDelegate: UIResponder, UIApplicationDelegate {
     
-    lazy var flutterEngine = FlutterEngine(name: "flutter_module")
+    var flutterEngine = FlutterEngine(name: "flutter_module")
 
 
 
@@ -24,10 +24,18 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         flutterEngine.run();
         // Used to connect plugins (only if you have plugins with iOS platform code).
         GeneratedPluginRegistrant.register(with: self.flutterEngine);
+        
+        let methodChannel = FlutterMethodChannel(name: "native.app/test",
+                                                         binaryMessenger: flutterEngine.binaryMessenger)
+        
+        methodChannel.setMethodCallHandler({
+              (call: FlutterMethodCall, result: @escaping FlutterResult) -> Void in
+            // Place to configure implementation of methods invoked from flutter side.
+        })
 
         return true
     }
-
+    
     // MARK: UISceneSession Lifecycle
 
     func application(_ application: UIApplication, configurationForConnecting connectingSceneSession: UISceneSession, options: UIScene.ConnectionOptions) -> UISceneConfiguration {
