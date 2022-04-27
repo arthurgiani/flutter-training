@@ -32,6 +32,8 @@ class MainActivity : AppCompatActivity() {
             DartExecutor.DartEntrypoint.createDefault()
         )
 
+        // flutterEngine.navigationChannel.setInitialRoute("/second")
+
         // Cache the FlutterEngine to be used by FlutterActivity.
         FlutterEngineCache
             .getInstance()
@@ -48,11 +50,17 @@ class MainActivity : AppCompatActivity() {
         setupActionBarWithNavController(navController, appBarConfiguration)
 
         binding.goToFlutterButton.setOnClickListener {
+
+            // method channel
+            // navigation channel nativo
+
             //Same MethodChannel as MethodChannel in
             val channel = MethodChannel(flutterEngine.dartExecutor.binaryMessenger, "native.app/test")
 
+
+
             //Set custom route on Flutter
-            channel.invokeMethod("changeRoute", "/second")
+            flutterEngine.navigationChannel.pushRoute("/second")
 
             //Init Activity
             startActivity(
