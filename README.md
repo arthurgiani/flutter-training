@@ -91,7 +91,14 @@
 - [Official Documentation](https://docs.flutter.dev/development/platform-integration/platform-channels?tab=type-mappings-kotlin-tab)
 - [How to use invokeMethod](https://api.flutter.dev/flutter/services/MethodChannel/invokeMethod.html)
 
-## 10. Useful Flutter Tips
+## 11. Flutter in Native App (Android/iOS)
+- [Official Documentation](https://docs.flutter.dev/development/add-to-app)
+
+## 12. Linters/Rules
+- [Official Documentation](https://dart.dev/tools/linter-rules)
+- [Dart Code Metrics](https://dartcodemetrics.dev/docs/getting-started/introduction)
+
+## 13. Useful Flutter Tips
 - [Widget of The Week](https://www.youtube.com/watch?v=8ZaFk0yvNlI&list=PLjxrf2q8roU23XGwz3Km7sQZFTdB996iG)
 - [Widgets Catalog](https://docs.flutter.dev/development/ui/widgets)
 - [Flutter Layout Cheatsheet](https://medium.com/flutter-community/flutter-layout-cheat-sheet-5363348d037e)
