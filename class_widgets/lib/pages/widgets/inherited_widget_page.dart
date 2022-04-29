@@ -85,7 +85,7 @@ class Container3 extends StatelessWidget {
   }
 }
 
-//wrap [MaterialApp] in main.dart inside a [InheritedText] and you can retrieve 'text'
+///wrap [MaterialApp] in main.dart inside a [InheritedText] and you can retrieve 'text'
 //value in any component using InheritedText.of(context).text
 class InheritedText extends InheritedWidget {
   const InheritedText({

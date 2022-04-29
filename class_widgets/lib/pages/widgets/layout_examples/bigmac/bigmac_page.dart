@@ -32,7 +32,7 @@ class BigMacPage extends StatelessWidget {
           const SizedBox(height: 48),
           Image.asset(
             'assets/images/big-mac.png',
-            height: 250,
+            height: 400,
           ),
           const Text(
             'Nutritional Information',

@@ -25,10 +25,12 @@ class _StatefulWidgetLifecyclePageState
               onTap: () {
                 //setState dispara o método didUpdateWidget nos widgets que
                 //são reconstruídos
-                debugPrint('setState');
-                setState(() {});
+                setState(() {
+                  debugPrint('setState');
+                });
               },
             ),
+            const SizedBox(height: 20),
             const TextField()
           ],
         ),
@@ -86,8 +88,9 @@ class _ExampleTextWidgetState extends State<ExampleTextWidget> {
 
   @override
   Widget build(BuildContext context) {
-    debugPrint(MediaQuery.of(context).viewPadding.bottom.toString());
-    debugPrint('Build');
+    debugPrint(
+      'Bottom Padding value: ${MediaQuery.of(context).viewPadding.bottom}',
+    );
     return const Text('Example text widget');
   }
 }
