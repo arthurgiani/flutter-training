@@ -14,7 +14,6 @@ class _CubitFakeListPageState extends State<CubitFakeListPage> {
   late final TextEditingController itemTextController;
   @override
   void initState() {
-    context.read<ListCubit>().getStringList();
     itemTextController = TextEditingController();
     super.initState();
   }

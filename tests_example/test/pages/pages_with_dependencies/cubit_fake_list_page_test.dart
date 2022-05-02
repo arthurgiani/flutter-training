@@ -20,7 +20,7 @@ void main() {
       home: BlocProvider(
         create: (_) => ListCubit(
           listRepository: listRepositoryMock,
-        ),
+        )..getStringList(),
         child: const CubitFakeListPage(),
       ),
     );
