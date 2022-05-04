@@ -3,8 +3,6 @@ import 'package:flutter_test/flutter_test.dart';
 import 'package:golden_toolkit/golden_toolkit.dart';
 import 'package:tests_example/pages/golden_test/golden_test_page.dart';
 
-import '../../device.dart';
-
 void main() {
   late DeviceBuilder deviceBuilder;
 
@@ -17,7 +15,6 @@ void main() {
       Device.iphone11,
       Device.tabletPortrait,
       Device.tabletLandscape,
-      CustomDevice.customPhone,
     ]);
   });
 
@@ -57,6 +54,27 @@ void main() {
 
     //assert
     await screenMatchesGolden(tester, 'initial_state_screen');
+  });
+
+  testGoldens(
+      'Golden Test Page Test - Initial Scenario - Device Builder - Dark Theme',
+      (tester) async {
+    //arrange
+    deviceBuilder.addScenario(
+      name: 'GoldenTestPage on initial state',
+      widget: const GoldenTestPage(),
+    );
+
+    //act
+    await tester.pumpDeviceBuilder(
+      deviceBuilder,
+      wrapper: materialAppWrapper(
+        theme: ThemeData.dark(),
+      ),
+    );
+
+    //assert
+    await screenMatchesGolden(tester, 'initial_state_screen_dark_mode');
   });
 
   testGoldens('Golden Test Page Test - Initial Scenario - multiScreenGolden',
