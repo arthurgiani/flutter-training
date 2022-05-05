@@ -1,7 +1,5 @@
 library design_system_example;
 
-export 'src/buttons/custom_button.dart';
-
 /// A Calculator.
 class Calculator {
   /// Returns [value] plus 1.
