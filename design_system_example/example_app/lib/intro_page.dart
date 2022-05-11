@@ -1,4 +1,5 @@
 import 'package:example_app/pages/button_page.dart';
+import 'package:example_app/pages/text_field_page.dart';
 import 'package:flutter/material.dart';
 
 class IntroPage extends StatefulWidget {
@@ -14,6 +15,9 @@ class _IntroPageState extends State<IntroPage> {
   List<Map<String, Widget>> designSystemOptions = [
     {
       'Buttons': const ButtonPage(),
+    },
+    {
+      'TextField': const TextFieldPage(),
     }
   ];
 
