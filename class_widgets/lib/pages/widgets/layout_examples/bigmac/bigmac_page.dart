@@ -79,9 +79,7 @@ class BigMacPage extends StatelessWidget {
                     ),
                   ],
                 ),
-                const SizedBox(
-                  width: 16,
-                ),
+                const Spacer(),
                 const RotatedBox(
                   quarterTurns: 3,
                   child: Text(
