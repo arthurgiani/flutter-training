@@ -41,7 +41,7 @@ class _TextFieldPageState extends State<TextFieldPage> {
               MainTextField(
                 placeholder: 'Text and trailling',
                 textEditingController: TextEditingController(),
-                trailing: const Icon(Icons.location_on),
+                trailing: const Icon(Icons.delete),
                 onTraillingTapped: () {
                   debugPrint('Pressed');
                 },
@@ -50,7 +50,7 @@ class _TextFieldPageState extends State<TextFieldPage> {
               MainTextField(
                 placeholder: 'Text, leading and trailling',
                 textEditingController: TextEditingController(),
-                trailing: const Icon(Icons.location_on),
+                trailing: const Icon(Icons.delete),
                 leading: const Icon(Icons.location_on),
                 onTraillingTapped: () {
                   debugPrint('Pressed');
@@ -61,7 +61,7 @@ class _TextFieldPageState extends State<TextFieldPage> {
                 placeholder: 'Obscure',
                 isObscure: true,
                 textEditingController: TextEditingController(),
-                trailing: const Icon(Icons.location_on),
+                trailing: const Icon(Icons.delete),
                 leading: const Icon(Icons.location_on),
                 onTraillingTapped: () {
                   debugPrint('Pressed');

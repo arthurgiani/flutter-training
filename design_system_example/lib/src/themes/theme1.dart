@@ -5,9 +5,7 @@ final theme1 = ThemeData(
   primarySwatch: Colors.green,
   disabledColor: mediumGreyColor,
   iconTheme: const IconThemeData(color: Colors.green),
-  textTheme: const TextTheme(
-    button: TextStyle(color: Colors.white),
-  ),
+  textTheme: const TextTheme(button: TextStyle(color: Colors.white)),
   outlinedButtonTheme: OutlinedButtonThemeData(
     style: ButtonStyle(
       textStyle: MaterialStateProperty.resolveWith(
