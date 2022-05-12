@@ -12,18 +12,30 @@
 
 
 ## 2. Flutter Foundations
-- [Offical Documentation](https://docs.flutter.dev/)
-- [Build your first layout](https://docs.flutter.dev/development/ui/layout/tutorial)
-- [Stateless Widgets](https://www.youtube.com/watch?v=wE7khGHVkYY&t=159s)
-- [Stateful Widgets](https://www.youtube.com/watch?v=wE7khGHVkYY&t=159s)
-- [What is BuildContext?](https://www.youtube.com/watch?v=ALmd6jLqUK8&t=295s)
-- [Inherited Widget](https://www.youtube.com/watch?v=Zbm3hjPjQMk)
-- [Flutter Cookbook](https://docs.flutter.dev/cookbook)
-- [Understanding Constraints](https://docs.flutter.dev/development/ui/layout/constraints)
-- [How Flutter render widgets](https://www.youtube.com/watch?v=996ZgFRENMs&t=720s)
-- [Flutter Decoding](https://www.youtube.com/watch?v=ceCo8U0XHqw&list=PLjxrf2q8roU1fRV40Ec8200rX6OuQkmnl)
+  - [Offical Documentation](https://docs.flutter.dev/)
 
-- [Flutter for React Native Devs](https://docs.flutter.dev/get-started/flutter-for/react-native-devs#react-native-and-flutter-widget-equivalent-components)
+### Widgets Basics
+  - [Stateless Widgets](https://www.youtube.com/watch?v=wE7khGHVkYY&t=159s)
+  - [Stateful Widgets](https://www.youtube.com/watch?v=wE7khGHVkYY&t=159s)
+  - [Inherited Widget](https://www.youtube.com/watch?v=Zbm3hjPjQMk)
+    - [Exercises (PT-BR)](https://gist.github.com/arthurgiani/6a00fd4ecff09d43ace53ed92eba446f)
+  - [Basic Widgets to build your first layout](https://docs.flutter.dev/development/ui/widgets/basics)
+
+### Practice your first layout
+  - [Build your first layout](https://docs.flutter.dev/development/ui/layout/tutorial)
+  - [Adding Interactivity to your Flutter App](https://docs.flutter.dev/development/ui/interactive)
+  - [Create your Form](https://docs.flutter.dev/cookbook/forms)
+  - [Adding Assets and Images](https://docs.flutter.dev/development/ui/assets-and-images)
+  - [Add your custom font](https://docs.flutter.dev/cookbook/design/fonts)
+  - [Navigation between Pages](https://docs.flutter.dev/cookbook/navigation)
+  - [How to handle Lists](https://docs.flutter.dev/cookbook/lists)
+
+### Others
+  - [What is BuildContext?](https://www.youtube.com/watch?v=ALmd6jLqUK8&t=295s)
+  - [Understanding Constraints](https://docs.flutter.dev/development/ui/layout/constraints)
+  - [How Flutter render widgets](https://www.youtube.com/watch?v=996ZgFRENMs&t=720s)
+  - [Flutter Decoding](https://www.youtube.com/watch?v=ceCo8U0XHqw&list=PLjxrf2q8roU1fRV40Ec8200rX6OuQkmnl)
+
 
 ## 3. State Management
 ### Provider
