@@ -37,7 +37,7 @@ void main() {
 
     await expectLater(
       find.byType(GoldenTestPage),
-      matchesGoldenFile('goldens_vanilla/golden_test_page.vanilla.png'),
+      matchesGoldenFile('goldens/golden_test_page.vanilla.png'),
     );
   });
 
@@ -53,7 +53,10 @@ void main() {
     await tester.pumpDeviceBuilder(deviceBuilder);
 
     //assert
-    await screenMatchesGolden(tester, 'initial_state_screen');
+    await screenMatchesGolden(
+      tester,
+      'initial_state_screen',
+    );
   });
 
   testGoldens(
@@ -72,11 +75,9 @@ void main() {
         theme: ThemeData.dark(),
       ),
     );
-
     //assert
     await screenMatchesGolden(tester, 'initial_state_screen_dark_mode');
   });
-
   testGoldens('Golden Test Page Test - Final Scenario - Device Builder',
       (tester) async {
     //arrange
@@ -90,21 +91,17 @@ void main() {
               const Key('elevated-button'),
             ),
           );
-
           await tester.tap(elevatedButton);
           await tester.pump();
-
           final afterClickText = find.descendant(
             of: find.byKey(deviceKey),
             matching: find.text('text after click on button'),
           );
-
           expect(afterClickText, findsOneWidget);
         });
 
     //act
     await tester.pumpDeviceBuilder(deviceBuilder);
-
     //assert
     await screenMatchesGolden(tester, 'final_state_screen');
   });
@@ -123,12 +120,9 @@ void main() {
     await multiScreenGolden(tester, 'final_state_screen_multi_screen_golden',
         customPump: (tester) async {
       final elevatedButton = find.byKey(const Key('elevated-button'));
-
       await tester.tap(elevatedButton);
       await tester.pump();
-
       final afterClickText = find.text('text after click on button');
-
       expect(afterClickText, findsOneWidget);
     });
   });
