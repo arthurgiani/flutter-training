@@ -1,32 +1,31 @@
-import 'package:design_system_example/design_system_example.dart';
 import 'package:flutter/material.dart';
+
+import '../../design_system_example.dart';
 
 final theme1 = ThemeData(
   primarySwatch: Colors.green,
   disabledColor: mediumGreyColor,
-  iconTheme: const IconThemeData(color: Colors.green),
-  textTheme: const TextTheme(button: TextStyle(color: Colors.white)),
-  outlinedButtonTheme: OutlinedButtonThemeData(
-    style: ButtonStyle(
-      textStyle: MaterialStateProperty.resolveWith(
-        (states) {
-          return const TextStyle(color: Colors.green);
-        },
-      ),
-    ),
+  textTheme: const TextTheme(
+    button: TextStyle(color: Colors.white),
+  ),
+  progressIndicatorTheme: const ProgressIndicatorThemeData(
+    color: Colors.white,
+  ),
+  iconTheme: const IconThemeData(
+    color: Colors.green,
   ),
   inputDecorationTheme: const InputDecorationTheme(
-    filled: true,
     fillColor: ultraLightGreyColor,
+    filled: true,
+    prefixIconColor: mediumGreyColor,
+    suffixIconColor: mediumGreyColor,
     enabledBorder: OutlineInputBorder(
-      borderRadius: BorderRadius.all(Radius.circular(8)),
       borderSide: BorderSide(color: lightGreyColor),
+      borderRadius: BorderRadius.all(Radius.circular(8)),
     ),
     focusedBorder: OutlineInputBorder(
-      borderRadius: BorderRadius.all(Radius.circular(8)),
       borderSide: BorderSide(color: lightGreyColor),
+      borderRadius: BorderRadius.all(Radius.circular(8)),
     ),
-    prefixIconColor: Colors.grey,
-    suffixIconColor: Colors.grey,
   ),
 );

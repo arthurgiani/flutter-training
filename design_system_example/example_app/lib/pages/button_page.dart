@@ -13,55 +13,47 @@ class _ButtonPageState extends State<ButtonPage> {
   @override
   Widget build(BuildContext context) {
     return CustomScaffold(
-      pageName: 'Button Page',
-      body: Center(
-        child: Padding(
-          padding: const EdgeInsets.all(8.0),
-          child: Column(
-            children: [
-              const Text('Enabled'),
-              const SizedBox(height: 16),
-              MainButton(
-                isEnabled: true,
-                isBusy: false,
-                label: 'Enabled',
-                onPressed: () {
-                  debugPrint('1');
-                },
-              ),
-              const SizedBox(height: 32),
-              const Text('Busy'),
-              const SizedBox(height: 16),
-              MainButton(
-                isEnabled: true,
-                isBusy: true,
-                onPressed: () {
-                  debugPrint('2');
-                },
-              ),
-              const SizedBox(height: 32),
-              const Text('Disabled'),
-              const SizedBox(height: 16),
-              MainButton(
-                isEnabled: false,
-                isBusy: false,
-                label: 'Disabled',
-                onPressed: () {
-                  debugPrint('3');
-                },
-              ),
-              const SizedBox(height: 32),
-              const Text('Outlined'),
-              const SizedBox(height: 16),
-              MainButton.outlined(
-                icon: Icons.exit_to_app,
-                label: 'Outlined',
-                onPressed: () {
-                  debugPrint('4');
-                },
-              ),
-            ],
-          ),
+      pageName: 'ButtonPage',
+      body: Padding(
+        padding: const EdgeInsets.all(16),
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            MainButton(
+              isEnabled: true,
+              isBusy: false,
+              label: 'Enabled',
+              onPressed: () {
+                debugPrint('Pressed');
+              },
+            ),
+            const SizedBox(height: 16),
+            MainButton(
+              isEnabled: false,
+              isBusy: false,
+              label: 'Disabled',
+              onPressed: () {
+                debugPrint('Pressed');
+              },
+            ),
+            const SizedBox(height: 16),
+            MainButton(
+              isEnabled: true,
+              isBusy: true,
+              label: 'Disabled',
+              onPressed: () {
+                debugPrint('Pressed');
+              },
+            ),
+            const SizedBox(height: 16),
+            MainButton.outlined(
+              label: 'Outlined',
+              onPressed: () {
+                debugPrint('Pressed');
+              },
+              icon: const Icon(Icons.password),
+            ),
+          ],
         ),
       ),
     );

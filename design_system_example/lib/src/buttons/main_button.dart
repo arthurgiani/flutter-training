@@ -5,90 +5,101 @@ class MainButton extends StatelessWidget {
     Key? key,
     required this.isEnabled,
     required this.isBusy,
-    this.label,
+    required this.label,
     required this.onPressed,
   }) : super(key: key);
 
-  const factory MainButton.outlined({
-    required IconData icon,
-    required VoidCallback onPressed,
-    required String label,
-  }) = _MainOutlinedButton;
-
   final bool isEnabled;
   final bool isBusy;
-  final String? label;
+  final String label;
   final VoidCallback onPressed;
 
-  final borderRadius = const BorderRadius.all(Radius.circular(12));
+  final borderRadius = const BorderRadius.all(Radius.circular(8));
+  final buttonHeight = 56.0;
+
+  factory MainButton.outlined({
+    required String label,
+    required VoidCallback onPressed,
+    required Widget icon,
+  }) {
+    return _OutlinedMainButton(
+      isEnabled: true,
+      isBusy: false,
+      label: label,
+      onPressed: onPressed,
+      icon: icon,
+    );
+  }
 
   @override
   Widget build(BuildContext context) {
     final theme = Theme.of(context);
     return Material(
       color: isEnabled ? theme.primaryColor : theme.disabledColor,
-      elevation: 5,
       borderRadius: borderRadius,
       child: InkWell(
-        borderRadius: borderRadius,
         onTap: (isEnabled && isBusy == false) ? onPressed : null,
+        borderRadius: borderRadius,
         child: Container(
           alignment: Alignment.center,
-          padding: const EdgeInsets.symmetric(vertical: 8, horizontal: 16),
+          height: buttonHeight,
           decoration: BoxDecoration(borderRadius: borderRadius),
-          height: 56,
           width: MediaQuery.of(context).size.width,
           child: isBusy
-              ? CircularProgressIndicator(color: theme.textTheme.button!.color)
-              : Text(label ?? '', style: theme.textTheme.button),
+              ? const CircularProgressIndicator()
+              : Text(label, style: theme.textTheme.button),
         ),
       ),
     );
   }
 }
 
-class _MainOutlinedButton extends MainButton {
-  const _MainOutlinedButton({
+class _OutlinedMainButton extends MainButton {
+  const _OutlinedMainButton({
     Key? key,
+    required bool isEnabled,
+    required bool isBusy,
     required String label,
     required VoidCallback onPressed,
     required this.icon,
   }) : super(
           key: key,
-          isEnabled: true,
-          isBusy: false,
+          isEnabled: isEnabled,
+          isBusy: isBusy,
           label: label,
           onPressed: onPressed,
         );
 
-  final IconData icon;
+  final Widget icon;
 
   @override
   Widget build(BuildContext context) {
     final theme = Theme.of(context);
-    return InkWell(
+    return Material(
+      color: Colors.transparent,
       borderRadius: borderRadius,
-      onTap: onPressed,
-      child: Container(
-        padding: const EdgeInsets.symmetric(vertical: 8, horizontal: 16),
-        alignment: Alignment.center,
-        decoration: BoxDecoration(
-          color: Colors.transparent,
-          border: Border.all(width: 1, color: theme.primaryColor),
-          borderRadius: borderRadius,
-        ),
-        height: 56,
-        width: MediaQuery.of(context).size.width,
-        child: Row(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            Icon(icon),
-            const SizedBox(width: 8),
-            Text(
-              label!,
-              style: theme.outlinedButtonTheme.style?.textStyle?.resolve({}),
-            )
-          ],
+      child: InkWell(
+        onTap: onPressed,
+        borderRadius: borderRadius,
+        child: Container(
+          height: buttonHeight,
+          width: MediaQuery.of(context).size.width,
+          decoration: BoxDecoration(
+            borderRadius: borderRadius,
+            border: Border.all(color: Theme.of(context).primaryColor),
+          ),
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              icon,
+              const SizedBox(width: 8),
+              Text(
+                label,
+                style:
+                    theme.textTheme.button?.copyWith(color: theme.primaryColor),
+              ),
+            ],
+          ),
         ),
       ),
     );
