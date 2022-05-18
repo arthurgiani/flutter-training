@@ -114,6 +114,11 @@
 - [Official Documentation](https://dart.dev/tools/linter-rules)
 - [Dart Code Metrics](https://dartcodemetrics.dev/docs/getting-started/introduction)
 
+## 13. Design System
+- [How Theme works](https://www.youtube.com/watch?v=oTvQDJOBXmM)
+- [Theme - Official documentation](https://docs.flutter.dev/cookbook/design/themes)
+- [Design system figma examples](https://www.figma.com/community/design_systems)
+
 ## 13. Useful Flutter Tips
 - [Widget of The Week](https://www.youtube.com/watch?v=8ZaFk0yvNlI&list=PLjxrf2q8roU23XGwz3Km7sQZFTdB996iG)
 - [Widgets Catalog](https://docs.flutter.dev/development/ui/widgets)
