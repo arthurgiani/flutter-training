@@ -25,8 +25,8 @@ class ViewController: UIViewController {
         FlutterViewController(engine: flutterEngine, nibName: nil, bundle: nil)
         flutterViewController.pushRoute("/second")
         flutterViewController.modalPresentationStyle = .fullScreen
-        present(flutterViewController, animated: true, completion: nil)
-        navigationController?.pushViewController(<#T##viewController: UIViewController##UIViewController#>, animated: <#T##Bool#>)
+        present(flutterViewController, animated: false, completion: nil)
+        navigationController?.pushViewController(UIViewController(), animated: true)
     }
 }
 

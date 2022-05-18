@@ -16,7 +16,9 @@ class _FirstPageState extends State<FirstPage> {
   void initState() {
     super.initState();
     methodChannel.setMethodCallHandler((call) async {
-      Navigator.of(context).pushNamed(call.arguments);
+      if (call.method == 'navigate') {
+        Navigator.of(context).pushNamed(call.arguments);
+      }
     });
   }
 

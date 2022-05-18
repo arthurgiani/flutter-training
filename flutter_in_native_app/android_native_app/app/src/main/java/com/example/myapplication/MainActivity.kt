@@ -1,7 +1,6 @@
 package com.example.myapplication
 
 import android.os.Bundle
-import com.google.android.material.snackbar.Snackbar
 import androidx.appcompat.app.AppCompatActivity
 import androidx.navigation.findNavController
 import androidx.navigation.ui.AppBarConfiguration
@@ -10,7 +9,6 @@ import androidx.navigation.ui.setupActionBarWithNavController
 import android.view.Menu
 import android.view.MenuItem
 import com.example.myapplication.databinding.ActivityMainBinding
-import io.flutter.embedding.android.FlutterActivity
 import io.flutter.embedding.engine.FlutterEngine
 import io.flutter.embedding.engine.FlutterEngineCache
 import io.flutter.embedding.engine.dart.DartExecutor
@@ -51,16 +49,17 @@ class MainActivity : AppCompatActivity() {
 
         binding.goToFlutterButton.setOnClickListener {
 
-            // method channel
-            // navigation channel nativo
-
-            //Same MethodChannel as MethodChannel in
+            //Same MethodChannel as MethodChannel in TestFlutterActivity
+            //Navigate to a specific page using method channel
             val channel = MethodChannel(flutterEngine.dartExecutor.binaryMessenger, "native.app/test")
 
+            // /second is the name of SecondPage in FlutterModule
+            channel.invokeMethod("navigate", "/second")
 
 
-            //Set custom route on Flutter
-            flutterEngine.navigationChannel.pushRoute("/second")
+            //Navigate to a specific page using flutterEngine.navigationChannel
+            //flutterEngine.navigationChannel.pushRoute("/second")
+
 
             //Init Activity
             startActivity(
