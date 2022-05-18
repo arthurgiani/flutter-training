@@ -108,20 +108,20 @@ void main() {
               MainButton(
                 isEnabled: true,
                 isBusy: false,
-                label: 'Loading',
+                label: 'Enabled',
                 onPressed: () {},
               ),
               const SizedBox(height: 32),
               MainButton(
                 isEnabled: false,
                 isBusy: false,
-                label: 'Loading',
+                label: 'Disabled',
                 onPressed: () {},
               ),
               const SizedBox(height: 32),
               MainButton.outlined(
                 icon: const Icon(Icons.ad_units),
-                label: 'Loading',
+                label: 'Outlined',
                 onPressed: () {},
               ),
             ],

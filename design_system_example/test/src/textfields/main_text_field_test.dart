@@ -10,7 +10,7 @@ import 'package:golden_toolkit/golden_toolkit.dart';
 void main() {
   testGoldens('MainTextField - All Scenarios - Theme1', (tester) async {
     final builder = GoldenBuilder.grid(
-      columns: 2,
+      columns: 3,
       widthToHeightRatio: 1,
     );
 
@@ -123,7 +123,7 @@ void main() {
       ),
     );
 
-    await tester.pump(const Duration(seconds: 2));
+    await tester.pump();
 
     await expectLater(
       find.byType(MaterialApp),
