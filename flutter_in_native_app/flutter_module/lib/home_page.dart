@@ -1,5 +1,4 @@
-import 'dart:io';
-
+import 'package:firebase_crashlytics/firebase_crashlytics.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
@@ -22,6 +21,14 @@ class _FirstPageState extends State<FirstPage> {
     });
   }
 
+  void forceCrashlyticsError() {
+    try {
+      final value = int.parse('not a string');
+    } catch (error, stackTrace) {
+      FirebaseCrashlytics.instance.recordError(error, stackTrace);
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -31,20 +38,33 @@ class _FirstPageState extends State<FirstPage> {
       body: Center(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
-          children: const <Widget>[
-            Text(
+          children: <Widget>[
+            const Text(
               'Flutter Module',
             ),
+            const SizedBox(height: 64),
+            Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 56),
+              child: Row(
+                children: [
+                  ElevatedButton(
+                    onPressed: forceCrashlyticsError,
+                    child: const Text('Send Error to Crashlytics'),
+                  ),
+                  const Spacer(),
+                  const ElevatedButton(
+                    onPressed: SystemNavigator.pop,
+                    child: Text('Exit Module'),
+                  )
+                ],
+              ),
+            )
           ],
         ),
       ),
       floatingActionButton: FloatingActionButton(
         onPressed: () {
-          if (Platform.isIOS) {
-            SystemNavigator.pop();
-          }
-          // Exit flutter app and return to native app (Android only).
-          methodChannel.invokeMethod('exitModule');
+          forceCrashlyticsError();
         },
         tooltip: 'Increment',
         child: const Icon(Icons.exit_to_app),
