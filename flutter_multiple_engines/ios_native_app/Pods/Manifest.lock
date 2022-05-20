@@ -1,0 +1,28 @@
+PODS:
+  - Flutter (1.0.0)
+  - flutter_multiple_engines (0.0.1):
+    - Flutter
+  - FlutterPluginRegistrant (0.0.1):
+    - Flutter
+
+DEPENDENCIES:
+  - Flutter (from `../flutter_multiple_engines/.ios/Flutter/engine`)
+  - flutter_multiple_engines (from `../flutter_multiple_engines/.ios/Flutter`)
+  - FlutterPluginRegistrant (from `../flutter_multiple_engines/.ios/Flutter/FlutterPluginRegistrant`)
+
+EXTERNAL SOURCES:
+  Flutter:
+    :path: "../flutter_multiple_engines/.ios/Flutter/engine"
+  flutter_multiple_engines:
+    :path: "../flutter_multiple_engines/.ios/Flutter"
+  FlutterPluginRegistrant:
+    :path: "../flutter_multiple_engines/.ios/Flutter/FlutterPluginRegistrant"
+
+SPEC CHECKSUMS:
+  Flutter: bdfa2e8fe0e2880a2c6a58a0b1a8675c262a07af
+  flutter_multiple_engines: 45ddd9e7aaaa8b5aa9a1340300abc53481fa5d64
+  FlutterPluginRegistrant: d3a0fbc12bc47787a12fcc919193f3959aa7d5ad
+
+PODFILE CHECKSUM: 84ad5fafa365364278a796f6be90ebed70357919
+
+COCOAPODS: 1.11.3
