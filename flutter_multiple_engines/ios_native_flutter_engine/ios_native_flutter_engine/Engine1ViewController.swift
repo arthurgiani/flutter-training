@@ -13,11 +13,11 @@ import Foundation
 class Engine1ViewController: FlutterViewController {
   private var channel: FlutterMethodChannel?
 
-    init(withEntrypoint entryPoint: String?, initialRoute: String?) {
+    init() {
     let appDelegate: AppDelegate = UIApplication.shared.delegate as! AppDelegate
-    let newEngine = appDelegate.engines.makeEngine(withEntrypoint: entryPoint, libraryURI: nil, initialRoute: initialRoute)
-    GeneratedPluginRegistrant.register(with: newEngine)
-    super.init(engine: newEngine, nibName: nil, bundle: nil)
+    let engine = appDelegate.engine1
+    GeneratedPluginRegistrant.register(with: engine)
+    super.init(engine: engine, nibName: nil, bundle: nil)
     self.modalPresentationStyle = .fullScreen
   }
 
@@ -26,9 +26,4 @@ class Engine1ViewController: FlutterViewController {
     fatalError("init(coder:) has not been implemented")
   }
 
-
-  override func viewDidLoad() {
-    super.viewDidLoad()
-    
-  }
 }

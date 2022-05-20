@@ -24,11 +24,11 @@ class ViewController: UIViewController {
     }
         
     @objc func showEngine1() {
-        present(Engine1ViewController(withEntrypoint: nil, initialRoute: nil), animated: false)
+        present(Engine1ViewController(), animated: true)
     }
     
     @objc func showEngine2() {
-        present(Engine1ViewController(withEntrypoint: nil, initialRoute: "/second"), animated: false)
+        present(Engine2ViewController(), animated: true)
     }
 }
 
