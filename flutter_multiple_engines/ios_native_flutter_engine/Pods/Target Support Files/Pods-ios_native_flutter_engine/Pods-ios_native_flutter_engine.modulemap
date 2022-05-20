@@ -1,0 +1,6 @@
+framework module Pods_ios_native_flutter_engine {
+  umbrella header "Pods-ios_native_flutter_engine-umbrella.h"
+
+  export *
+  module * { export * }
+}
