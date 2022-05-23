@@ -38,11 +38,11 @@ class __BodyWidgetState extends State<_BodyWidget> {
   void initState() {
     super.initState();
     _listController.getStringList().then((value) {
-      WidgetsBinding.instance!.addPostFrameCallback((_) {
+      WidgetsBinding.instance.addPostFrameCallback((_) {
         setState(() {});
       });
     }).catchError((error, stackTrace) {
-      WidgetsBinding.instance!.addPostFrameCallback((_) {
+      WidgetsBinding.instance.addPostFrameCallback((_) {
         setState(() {});
       });
     });
