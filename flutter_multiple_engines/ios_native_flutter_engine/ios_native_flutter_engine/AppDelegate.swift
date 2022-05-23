@@ -16,6 +16,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     let engines = FlutterEngineGroup(name: "multiple-flutters", project: nil)
     lazy var engine1 = engines.makeEngine(withEntrypoint: nil, libraryURI: nil, initialRoute: nil)
     lazy var engine2 = engines.makeEngine(withEntrypoint: nil, libraryURI: nil, initialRoute: "/second")
+    
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         
