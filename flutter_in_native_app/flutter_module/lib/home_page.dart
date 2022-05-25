@@ -23,7 +23,6 @@ class _FirstPageState extends State<FirstPage> {
 
   void forceCrashlyticsError() async {
     try {
-      await Future.delayed(const Duration(seconds: 2));
       final value = int.parse('not a string');
     } catch (error, stackTrace) {
       FirebaseCrashlytics.instance.recordError(error, stackTrace);
