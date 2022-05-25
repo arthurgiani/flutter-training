@@ -21,8 +21,9 @@ class _FirstPageState extends State<FirstPage> {
     });
   }
 
-  void forceCrashlyticsError() {
+  void forceCrashlyticsError() async {
     try {
+      await Future.delayed(const Duration(seconds: 2));
       final value = int.parse('not a string');
     } catch (error, stackTrace) {
       FirebaseCrashlytics.instance.recordError(error, stackTrace);
@@ -43,21 +44,13 @@ class _FirstPageState extends State<FirstPage> {
               'Flutter Module',
             ),
             const SizedBox(height: 64),
-            Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 56),
-              child: Row(
-                children: [
-                  ElevatedButton(
-                    onPressed: forceCrashlyticsError,
-                    child: const Text('Send Error to Crashlytics'),
-                  ),
-                  const Spacer(),
-                  const ElevatedButton(
-                    onPressed: SystemNavigator.pop,
-                    child: Text('Exit Module'),
-                  )
-                ],
-              ),
+            ElevatedButton(
+              onPressed: forceCrashlyticsError,
+              child: const Text('Send Error to Crashlytics'),
+            ),
+            const ElevatedButton(
+              onPressed: SystemNavigator.pop,
+              child: Text('Exit Module'),
             )
           ],
         ),
