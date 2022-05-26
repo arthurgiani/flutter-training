@@ -19,5 +19,13 @@ Project for beginners using:
 
 ### Add todo 
 
-![add_todo](https://github.com/arthurgiani/flutter-training/beginner_todo_list/add_todo.gif) 
+![add_todo](https://github.com/arthurgiani/flutter-training/blob/main/beginner_todo_list/add_todo.gif)
+
+### Edit todo 
+
+![add_todo](https://github.com/arthurgiani/flutter-training/blob/main/beginner_todo_list/edit_todo.gif)
+
+### Delete todo 
+
+![add_todo](https://github.com/arthurgiani/flutter-training/blob/main/beginner_todo_list/delete-todo.gif)
   
