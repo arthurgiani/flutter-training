@@ -27,6 +27,18 @@ class _HomePageState extends State<HomePage> {
               },
             ),
             CustomButton(
+              label: 'Go to HomeParamsPage',
+              onPressed: () {
+                Modular.to.pushNamed('/params-page/lorem-ipsum');
+              },
+            ),
+            CustomButton(
+              label: 'Go to HomeQueryParamsPage',
+              onPressed: () {
+                Modular.to.pushNamed('/query-params-page?text=lorem');
+              },
+            ),
+            CustomButton(
               label: 'Go to CounterModule',
               onPressed: () {
                 Modular.to.pushNamed('/counter/');
