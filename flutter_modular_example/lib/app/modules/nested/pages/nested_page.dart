@@ -16,7 +16,7 @@ class _NestedPageState extends State<NestedPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: RouterOutlet(),
+      body: const RouterOutlet(),
       bottomNavigationBar: NavigationListener(builder: (context, child) {
         return BottomNavigationBar(
           selectedItemColor: Colors.red,
