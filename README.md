@@ -1,5 +1,7 @@
 # Flutter Training Repo
 
+Set of repositories, links and tutorial to be used in training services, from basic to advanced.
+
 ## 1. Dart Language
 ### Basic
 - [Dart Basics (Examples, Cheatsheets and Exercises)](https://github.com/arthurgiani/flutter-training/tree/main/dart_basics)
