@@ -46,7 +46,7 @@ class _AddTodoPageState extends State<AddTodoPage> {
                   value: isDone,
                   onChanged: (value) {
                     setState(() {
-                      isDone = value!;
+                      isDone = value ?? false;
                     });
                   },
                 ),

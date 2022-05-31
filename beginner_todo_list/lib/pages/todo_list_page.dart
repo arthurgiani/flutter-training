@@ -80,7 +80,7 @@ class _TodoListBody extends StatelessWidget {
             leading: Checkbox(
               value: todo.isDone,
               onChanged: (value) {
-                todo.isDone = value!;
+                todo.isDone = value ?? false;
                 todoListNotifier.editTodo(todo: todo);
               },
             ),
