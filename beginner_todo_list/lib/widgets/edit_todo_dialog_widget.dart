@@ -42,16 +42,14 @@ class _EditTodoDialogWidgetState extends State<EditTodoDialogWidget> {
           },
         ),
       ],
-      content: SingleChildScrollView(
-        child: Column(
-          mainAxisSize: MainAxisSize.min,
-          crossAxisAlignment: CrossAxisAlignment.stretch,
-          children: [
-            const Text('Edit todo name'),
-            const SizedBox(height: 16),
-            TextField(controller: todoNameTextController),
-          ],
-        ),
+      content: Column(
+        mainAxisSize: MainAxisSize.min,
+        crossAxisAlignment: CrossAxisAlignment.stretch,
+        children: [
+          const Text('Edit todo name'),
+          const SizedBox(height: 16),
+          TextField(controller: todoNameTextController),
+        ],
       ),
     );
   }
