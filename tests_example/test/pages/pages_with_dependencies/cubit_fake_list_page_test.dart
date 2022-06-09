@@ -1,26 +1,29 @@
+import 'package:bloc_test/bloc_test.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:mocktail/mocktail.dart';
 import 'package:tests_example/blocs/list_cubit.dart';
+import 'package:tests_example/blocs/list_state.dart';
 import 'package:tests_example/pages/pages_with_dependencies/cubit_fake_list_page.dart';
-import 'package:tests_example/repositories/list_repository.dart';
 
-class ListRepositoryMock extends Mock implements ListRepository {}
+class ListCubitMock extends MockCubit<ListState> implements ListCubit {}
 
 void main() {
-  late ListRepository listRepositoryMock;
+  late ListCubitMock listCubitMock;
 
   setUp(() {
-    listRepositoryMock = ListRepositoryMock();
+    listCubitMock = ListCubitMock();
+  });
+
+  tearDown(() {
+    listCubitMock.close();
   });
 
   Widget createMainTestWidget() {
     return MaterialApp(
-      home: BlocProvider(
-        create: (_) => ListCubit(
-          listRepository: listRepositoryMock,
-        )..getStringList(),
+      home: BlocProvider<ListCubit>(
+        create: (_) => listCubitMock,
         child: const CubitFakeListPage(),
       ),
     );
@@ -28,25 +31,55 @@ void main() {
 
   final strings = ['String 1', 'String 2'];
 
-  //Dart test zone works different than the 'real' production zone.
-  //Test environment does not consider the fake 2 seconds delay in
-  //getStringList(), so we need to force another delay in 'thenAnswer'
-  arrangeStringList() {
-    when(() => listRepositoryMock.getStringList()).thenAnswer(
-      (_) async {
-        await Future.delayed(const Duration(seconds: 1));
-        return strings;
-      },
+  testWidgets('find app bar title ...', (tester) async {
+    whenListen(
+      listCubitMock,
+      Stream.fromIterable(
+        [
+          ListState(status: ListStatus.loadedList, items: strings),
+        ],
+      ),
+      initialState: ListState(status: ListStatus.initial),
     );
-  }
 
-  //TODO: Check why forced delays does not work on 'thenThrow'.
-  arrangeStringListError() async {
-    when(() => listRepositoryMock.getStringList()).thenThrow(Exception());
-  }
+    await tester.pumpWidget(createMainTestWidget());
 
-  Future arrangeLoadedList(WidgetTester tester) async {
-    arrangeStringList();
+    final appBarTitle = find.text('Fake List - Cubit');
+
+    expect(appBarTitle, findsOneWidget);
+  });
+
+  testWidgets(
+      'Should display a CircularProgressIndicator when ListStatus.status is loadingList',
+      (tester) async {
+    whenListen(
+      listCubitMock,
+      Stream.fromIterable(
+        [
+          ListState(status: ListStatus.loadingList),
+        ],
+      ),
+      initialState: ListState(status: ListStatus.loadingList),
+    );
+
+    await tester.pumpWidget(createMainTestWidget());
+
+    final circularProgressIndicator = find.byType(CircularProgressIndicator);
+
+    expect(circularProgressIndicator, findsOneWidget);
+  });
+
+  testWidgets('Should display a ListView when ListStatus.status is loadedList',
+      (tester) async {
+    whenListen(
+      listCubitMock,
+      Stream.fromIterable(
+        [
+          ListState(status: ListStatus.loadedList, items: strings),
+        ],
+      ),
+      initialState: ListState(status: ListStatus.initial),
+    );
     await tester.pumpWidget(createMainTestWidget());
     await tester.pumpAndSettle();
 
@@ -57,61 +90,45 @@ void main() {
     expect(listViewBuilder, findsOneWidget);
     expect(item0, findsOneWidget);
     expect(item1, findsOneWidget);
-  }
-
-  testWidgets('find app bar title ...', (tester) async {
-    arrangeStringList();
-    await tester.pumpWidget(createMainTestWidget());
-
-    final appBarTitle = find.text('Fake List - Cubit');
-
-    expect(appBarTitle, findsOneWidget);
-
-    await tester.pumpAndSettle();
   });
 
   testWidgets(
-      'display circular progress indicator when list of strings is loading when build method runs',
+      'Should display an error message when ListStatus.status is getStringListError',
       (tester) async {
-    arrangeStringList();
+    whenListen(
+      listCubitMock,
+      Stream.fromIterable(
+        [
+          ListState(status: ListStatus.getStringListerror),
+        ],
+      ),
+      initialState: ListState(status: ListStatus.getStringListerror),
+    );
+
     await tester.pumpWidget(createMainTestWidget());
-
-    final circularProgress = find.byType(CircularProgressIndicator);
-
-    expect(circularProgress, findsOneWidget);
-
-    //Since we have a fake delay on arrangeStringList, pumpAndSettle needs to be
-    //activated in order to make sure that the test only ends after the last
-    //frame build.
-
-    //This is necessary because, even with fake delay on mock method,
-    //dart test environment does not consider that delay literally.
-    //It means that, inside the test, the '2 seconds delay' does not represent
-    //2 seconds delay 'in real life'. Threfore, if we remove pumpAndSettle,
-    //further methods will be executed while arrangeStringList is still running.
-    //The test will end, the widget tree will be disposed while the 'fake delay'
-    //is still happening, so it will cause a Pending Time error.
     await tester.pumpAndSettle();
-  });
-
-  testWidgets('display string list after loading', (tester) async {
-    await arrangeLoadedList(tester);
-  });
-
-  testWidgets(
-      'display error message in case of any error in loading string list',
-      (tester) async {
-    arrangeStringListError();
-    await tester.pumpWidget(createMainTestWidget());
 
     final errorMessage = find.byKey(const Key('list-error-message'));
     expect(errorMessage, findsOneWidget);
   });
 
   testWidgets(
-      'Check if a string from TextField can be added to a loaded string list after press on FAB',
+      'Should show a CircularProgressIndicator as FAB child when ListStatus.status is addingItem',
       (tester) async {
-    await arrangeLoadedList(tester);
+    when(() => listCubitMock.addItem(item: any(named: 'item'))).thenAnswer(
+      (_) async => {},
+    );
+
+    whenListen(
+      listCubitMock,
+      Stream.fromIterable(
+        [
+          ListState(status: ListStatus.addingItem),
+        ],
+      ),
+      initialState: ListState(status: ListStatus.initial),
+    );
+    await tester.pumpWidget(createMainTestWidget());
 
     //Add Text
     final textField = find.byType(TextField);
@@ -120,17 +137,32 @@ void main() {
     //Tap FAB and show ProgressIndicator
     await tester.tap(find.byType(FloatingActionButton));
     await tester.pump();
-    expect(find.byType(CircularProgressIndicator), findsOneWidget);
-    await tester.pumpAndSettle();
 
-    //Check if item is added to the list
-    expect(find.byKey(const Key('item_2')), findsOneWidget);
+    final progress = find.byType(CircularProgressIndicator);
+    expect(progress, findsOneWidget);
+
+    verify((() => listCubitMock.addItem(item: 'item added'))).called(1);
   });
 
   testWidgets(
-      'show an error snackbar if user tries to add a forbidden string to string list after press on FAB',
+      '''Should raise a SnackBar when ListStatus.status is addItemError and
+        check that the forbidden item was not added to the list.''',
       (tester) async {
-    await arrangeLoadedList(tester);
+    when(() => listCubitMock.addItem(item: any(named: 'item'))).thenAnswer(
+      (_) async => {},
+    );
+
+    whenListen(
+      listCubitMock,
+      Stream.fromIterable(
+        [
+          ListState(status: ListStatus.addItemError),
+        ],
+      ),
+      initialState: ListState(status: ListStatus.initial),
+    );
+
+    await tester.pumpWidget(createMainTestWidget());
 
     //Add forbidden Text
     final textField = find.byType(TextField);
@@ -140,8 +172,8 @@ void main() {
     await tester.tap(find.byType(FloatingActionButton));
     await tester.pump();
 
-    //Check if snackbar appears and if item2 is not added to the list
-    expect(find.byKey(const Key('item_2')), findsNothing);
+    //Check if snackbar appears and if item0 is not added to the list
+    expect(find.byKey(const Key('item_0')), findsNothing);
     expect(find.byType(SnackBar), findsOneWidget);
   });
 }
