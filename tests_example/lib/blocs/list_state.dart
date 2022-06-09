@@ -1,3 +1,5 @@
+import 'package:flutter/foundation.dart';
+
 enum ListStatus {
   initial,
   loadingList,
@@ -29,4 +31,17 @@ class ListState {
       status: status ?? this.status,
     );
   }
+
+  @override
+  bool operator ==(Object other) {
+    if (identical(this, other)) return true;
+
+    return other is ListState &&
+        other.error == error &&
+        listEquals(other.items, items) &&
+        other.status == status;
+  }
+
+  @override
+  int get hashCode => error.hashCode ^ items.hashCode ^ status.hashCode;
 }
