@@ -175,5 +175,7 @@ void main() {
     //Check if snackbar appears and if item0 is not added to the list
     expect(find.byKey(const Key('item_0')), findsNothing);
     expect(find.byType(SnackBar), findsOneWidget);
+
+    verify((() => listCubitMock.addItem(item: 'forbidden item'))).called(1);
   });
 }
