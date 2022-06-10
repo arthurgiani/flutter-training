@@ -54,13 +54,6 @@ class _FirstPageState extends State<FirstPage> {
           ],
         ),
       ),
-      floatingActionButton: FloatingActionButton(
-        onPressed: () {
-          forceCrashlyticsError();
-        },
-        tooltip: 'Increment',
-        child: const Icon(Icons.exit_to_app),
-      ),
     );
   }
 }

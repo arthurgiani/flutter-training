@@ -23,7 +23,6 @@ class ViewController: UIViewController {
         let flutterEngine = (UIApplication.shared.delegate as! AppDelegate).flutterEngine
         let flutterViewController =
         FlutterViewController(engine: flutterEngine, nibName: nil, bundle: nil)
-        flutterViewController.pushRoute("/second")
         flutterViewController.modalPresentationStyle = .fullScreen
         present(flutterViewController, animated: false, completion: nil)
         navigationController?.pushViewController(UIViewController(), animated: true)
