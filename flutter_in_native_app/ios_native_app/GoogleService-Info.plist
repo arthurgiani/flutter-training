@@ -3,9 +3,9 @@
 <plist version="1.0">
 <dict>
 	<key>CLIENT_ID</key>
-	<string>758939207449-ht5oda27m53ifdncmue00upe7ts1e4rq.apps.googleusercontent.com</string>
+	<string>758939207449-ms4ivt1t4j7ke56jkg9q6fgqsg51pufv.apps.googleusercontent.com</string>
 	<key>REVERSED_CLIENT_ID</key>
-	<string>com.googleusercontent.apps.758939207449-ht5oda27m53ifdncmue00upe7ts1e4rq</string>
+	<string>com.googleusercontent.apps.758939207449-ms4ivt1t4j7ke56jkg9q6fgqsg51pufv</string>
 	<key>API_KEY</key>
 	<string>AIzaSyBP8h799k-DxyHFCMZaO6xvz2zDmLSP8Z4</string>
 	<key>GCM_SENDER_ID</key>
@@ -13,7 +13,7 @@
 	<key>PLIST_VERSION</key>
 	<string>1</string>
 	<key>BUNDLE_ID</key>
-	<string>com.example.app</string>
+	<string>training.ios-native-app</string>
 	<key>PROJECT_ID</key>
 	<string>crashlytics-test-b8270</string>
 	<key>STORAGE_BUCKET</key>
@@ -29,6 +29,6 @@
 	<key>IS_SIGNIN_ENABLED</key>
 	<true></true>
 	<key>GOOGLE_APP_ID</key>
-	<string>1:758939207449:ios:e6fb8b673ecd9628272788</string>
+	<string>1:758939207449:ios:a25115c83b8bc309272788</string>
 </dict>
 </plist>

@@ -9,6 +9,7 @@ import UIKit
 import Flutter
 // Used to connect plugins (only if you have plugins with iOS platform code).
 import FlutterPluginRegistrant
+import FirebaseCore
 
 @main
 class AppDelegate: FlutterAppDelegate {
@@ -19,7 +20,7 @@ class AppDelegate: FlutterAppDelegate {
     override
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
-        
+        FirebaseApp.configure()
         // Runs the default Dart entrypoint with a default Flutter route.
         
         flutterEngine.run();

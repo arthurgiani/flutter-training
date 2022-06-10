@@ -13,6 +13,7 @@
 		8E8FDDF228132CC2007258A9 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8E8FDDF028132CC2007258A9 /* Main.storyboard */; };
 		8E8FDDF428132CC3007258A9 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8E8FDDF328132CC3007258A9 /* Assets.xcassets */; };
 		8E8FDDF728132CC3007258A9 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8E8FDDF528132CC3007258A9 /* LaunchScreen.storyboard */; };
+		8EC0C8882853A16900D6F1E4 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 8EC0C8872853A16900D6F1E4 /* GoogleService-Info.plist */; };
 		916F0A8D5703987870591AA3 /* Pods_ios_native_app.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 79939DB52DBA1A208BCAACDD /* Pods_ios_native_app.framework */; };
 /* End PBXBuildFile section */
 
@@ -28,6 +29,7 @@
 		8E8FDDF328132CC3007258A9 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		8E8FDDF628132CC3007258A9 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		8E8FDDF828132CC3007258A9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		8EC0C8872853A16900D6F1E4 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -62,6 +64,7 @@
 		8E8FDDDE28132CC2007258A9 = {
 			isa = PBXGroup;
 			children = (
+				8EC0C8872853A16900D6F1E4 /* GoogleService-Info.plist */,
 				8E8FDDE928132CC2007258A9 /* ios_native_app */,
 				8E8FDDE828132CC2007258A9 /* Products */,
 				02CE9EBB92D3A6044875DFCC /* Pods */,
@@ -153,6 +156,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				8E8FDDF728132CC3007258A9 /* LaunchScreen.storyboard in Resources */,
+				8EC0C8882853A16900D6F1E4 /* GoogleService-Info.plist in Resources */,
 				8E8FDDF428132CC3007258A9 /* Assets.xcassets in Resources */,
 				8E8FDDF228132CC2007258A9 /* Main.storyboard in Resources */,
 			);

@@ -59,11 +59,11 @@ class DefaultFirebaseOptions {
 
   static const FirebaseOptions ios = FirebaseOptions(
     apiKey: 'AIzaSyBP8h799k-DxyHFCMZaO6xvz2zDmLSP8Z4',
-    appId: '1:758939207449:ios:e6fb8b673ecd9628272788',
+    appId: '1:758939207449:ios:a25115c83b8bc309272788',
     messagingSenderId: '758939207449',
     projectId: 'crashlytics-test-b8270',
     storageBucket: 'crashlytics-test-b8270.appspot.com',
-    iosClientId: '758939207449-ht5oda27m53ifdncmue00upe7ts1e4rq.apps.googleusercontent.com',
-    iosBundleId: 'com.example.app',
+    iosClientId: '758939207449-ms4ivt1t4j7ke56jkg9q6fgqsg51pufv.apps.googleusercontent.com',
+    iosBundleId: 'training.ios-native-app',
   );
 }
