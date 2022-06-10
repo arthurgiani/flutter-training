@@ -9,9 +9,11 @@ project 'Runner', {
   'Release' => :release,
 }
 
+INFO_PLIST_PATH = File.expand_path("../../../ios_native_app/GoogleService-Info.plist", __FILE__)
+
 def run_script_brand
   script_phase :name => 'Run Flutter Firebase',
-      :script => "INFO_PLIST=GoogleService-Info.plist\nINFO_FILE=\"/Users/arthur/Desktop/Trabalho/FTEAM/Treinamentos/Smartfit/flutter-training/flutter_in_native_app/ios_native_app/GoogleService-Info.plist\"\n\necho \"Looking for ${INFO_PLIST} in ${INFO_FILE}\"\nif [ ! -f $INFO_FILE ]\nthen\n\techo \"Não foi encontrado o arquivo ${INFO_FILE}.\"\n\texit 1\nfi\n\nPLIST_DESTINATION=${BUILT_PRODUCTS_DIR}/${PRODUCT_NAME}.app\necho \"Will copy ${INFO_PLIST} to final destination: ${PLIST_DESTINATION}\"\n\necho \"Using ${INFO_FILE}\"\ncp \"${INFO_FILE}\" \"${PLIST_DESTINATION}\""
+      :script => "INFO_PLIST=GoogleService-Info.plist\nINFO_FILE=\"#{INFO_PLIST_PATH}\"\n\necho \"Looking for ${INFO_PLIST} in ${INFO_FILE}\"\nif [ ! -f $INFO_FILE ]\nthen\n\techo \"Não foi encontrado o arquivo ${INFO_FILE}.\"\n\texit 1\nfi\n\nPLIST_DESTINATION=${BUILT_PRODUCTS_DIR}/${PRODUCT_NAME}.app\necho \"Will copy ${INFO_PLIST} to final destination: ${PLIST_DESTINATION}\"\n\necho \"Using ${INFO_FILE}\"\ncp \"${INFO_FILE}\" \"${PLIST_DESTINATION}\""
 end
 
 def flutter_root
