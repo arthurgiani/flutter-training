@@ -9,7 +9,7 @@ project 'Runner', {
   'Release' => :release,
 }
 
-INFO_PLIST_PATH = File.expand_path("../../../ios_native_app/GoogleService-Info.plist", __FILE__)
+INFO_PLIST_PATH = File.expand_path("../../ios_native_app/GoogleService-Info.plist", Dir.pwd)
 
 def run_script_brand
   script_phase :name => 'Run Flutter Firebase',
