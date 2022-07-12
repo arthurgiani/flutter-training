@@ -8,7 +8,7 @@ class PlatformChannelHandler {
     'test_method_channel',
   );
 
-  final EventChannel eventChannel = const EventChannel('test.smartfit');
+  final EventChannel eventChannel = const EventChannel('channel.test');
 
   Future<int> getBatteryLevel() async {
     final result = await methodChannel.invokeMethod<int>('getBattery');
