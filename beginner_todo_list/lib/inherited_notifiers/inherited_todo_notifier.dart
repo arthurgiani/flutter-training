@@ -10,8 +10,11 @@ class InheritedTodoNotifier extends InheritedNotifier<TodoListNotifier> {
   }) : super(key: key, notifier: notifier);
 
   static TodoListNotifier of(BuildContext context) {
-    return context
-        .dependOnInheritedWidgetOfExactType<InheritedTodoNotifier>()!
-        .notifier!;
+    final InheritedTodoNotifier? result =
+        context.dependOnInheritedWidgetOfExactType<InheritedTodoNotifier>();
+
+    assert(result != null, 'No InheritedTodoNotifier found in context');
+
+    return result!.notifier!;
   }
 }
