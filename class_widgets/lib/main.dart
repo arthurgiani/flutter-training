@@ -1,4 +1,6 @@
 import 'package:class_widgets/components/custom_button.dart';
+import 'package:class_widgets/pages/data.dart';
+import 'package:class_widgets/pages/handlers.dart';
 import 'package:class_widgets/pages/navigation/navigation_test_first_page.dart';
 import 'package:class_widgets/pages/widgets/widgets_intro_page.dart';
 import 'package:flutter/material.dart';
@@ -56,6 +58,12 @@ class MyHomePage extends StatefulWidget {
 class _MyHomePageState extends State<MyHomePage> {
   bool isHelloWorld = true;
 
+  final List<Data> list = [
+    Data(1, 'nutri'),
+    Data(2, 'other'),
+    Data(3, 'another'),
+  ];
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -65,14 +73,26 @@ class _MyHomePageState extends State<MyHomePage> {
       body: Center(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
-          children: const <Widget>[
-            CustomButton(
+          children: <Widget>[
+            const CustomButton(
               label: 'Widgets',
               nextWidget: WidgetsIntroPage(),
             ),
-            CustomButton(
+            const CustomButton(
               label: 'Navigation',
               nextWidget: NavigationTestFirstPage(),
+            ),
+            Expanded(
+              child: ListView.builder(
+                itemCount: list.length,
+                itemBuilder: (context, index) {
+                  final item = list[index];
+                  final anotherWidget = AnotherWidget();
+                  final otherWidget = OtherWidget(next: anotherWidget);
+                  final nutriRender = NutriWidget(next: otherWidget);
+                  return nutriRender.render(context, item.label);
+                },
+              ),
             )
           ],
         ),

@@ -1,8 +1,8 @@
-import 'package:beginner_todo_list/notifiers/todo_list_notifier.dart';
 import 'package:beginner_todo_list/pages/add_todo_page.dart';
 import 'package:beginner_todo_list/widgets/edit_todo_dialog_widget.dart';
 import 'package:flutter/material.dart';
-import 'package:provider/provider.dart';
+
+import '../inherited_notifiers/inherited_todo_notifier.dart';
 
 class TodoListPage extends StatefulWidget {
   const TodoListPage({Key? key}) : super(key: key);
@@ -41,7 +41,7 @@ class _TodoListBody extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final todoListNotifier = context.watch<TodoListNotifier>();
+    final todoListNotifier = InheritedTodoNotifier.of(context);
     if (todoListNotifier.todos.isEmpty) {
       return const Center(
         child: Text('Add a todo'),

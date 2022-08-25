@@ -1,8 +1,7 @@
 import 'package:beginner_todo_list/models/todo_model.dart';
 import 'package:flutter/material.dart';
-import 'package:provider/provider.dart';
 
-import '../notifiers/todo_list_notifier.dart';
+import '../inherited_notifiers/inherited_todo_notifier.dart';
 
 class AddTodoPage extends StatefulWidget {
   const AddTodoPage({Key? key}) : super(key: key);
@@ -19,7 +18,7 @@ class _AddTodoPageState extends State<AddTodoPage> {
 
   @override
   Widget build(BuildContext context) {
-    final todoListNotifier = context.read<TodoListNotifier>();
+    final todoListNotifier = InheritedTodoNotifier.of(context);
     return Scaffold(
       appBar: AppBar(
         title: const Text('Add Todo'),

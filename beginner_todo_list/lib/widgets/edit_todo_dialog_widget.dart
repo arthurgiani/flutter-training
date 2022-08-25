@@ -1,8 +1,7 @@
 import 'package:beginner_todo_list/models/todo_model.dart';
 import 'package:flutter/material.dart';
-import 'package:provider/provider.dart';
 
-import '../notifiers/todo_list_notifier.dart';
+import '../inherited_notifiers/inherited_todo_notifier.dart';
 
 class EditTodoDialogWidget extends StatefulWidget {
   const EditTodoDialogWidget({Key? key, required this.todo}) : super(key: key);
@@ -24,7 +23,7 @@ class _EditTodoDialogWidgetState extends State<EditTodoDialogWidget> {
 
   @override
   Widget build(BuildContext context) {
-    final todoListNotifier = context.read<TodoListNotifier>();
+    final todoListNotifier = InheritedTodoNotifier.of(context);
     return AlertDialog(
       actions: [
         TextButton(
