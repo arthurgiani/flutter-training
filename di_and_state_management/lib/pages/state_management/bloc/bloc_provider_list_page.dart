@@ -4,6 +4,8 @@ import 'package:di_and_state_management/states/list_state.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
+import '../../../blocs/events/list_event.dart';
+
 class BlocProviderListPage extends StatefulWidget {
   const BlocProviderListPage({Key? key}) : super(key: key);
 
@@ -15,7 +17,8 @@ class _BlocProviderListPageState extends State<BlocProviderListPage> {
   @override
   Widget build(BuildContext context) {
     return BlocProvider(
-      create: (context) => ListBloc(listRepository: ListRepository()),
+      create: (context) =>
+          ListBloc(listRepository: ListRepository())..add(GetListEvent()),
       child: Scaffold(
         appBar: AppBar(
           title: const Text('Loading List'),

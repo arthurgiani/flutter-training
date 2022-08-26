@@ -1,6 +1,7 @@
 import 'package:di_and_state_management/components/custom_button.dart';
 import 'package:di_and_state_management/pages/state_management/bloc/bloc_counter_page.dart';
 import 'package:di_and_state_management/pages/state_management/bloc/bloc_list_page.dart';
+import 'package:di_and_state_management/pages/state_management/bloc/bloc_provider_list_page.dart';
 import 'package:flutter/material.dart';
 
 class BlocIntroPage extends StatefulWidget {
@@ -25,7 +26,7 @@ class _BlocIntroPageState extends State<BlocIntroPage> {
             CustomButton(label: 'Loading List', nextWidget: BlocListPage()),
             CustomButton(
               label: 'Loading List + BlocProvider',
-              nextWidget: BlocListPage(),
+              nextWidget: BlocProviderListPage(),
             )
           ],
         ),
