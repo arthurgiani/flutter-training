@@ -10,6 +10,7 @@ class StatefulWidgetLifecyclePage extends StatefulWidget {
 
 class _StatefulWidgetLifecyclePageState
     extends State<StatefulWidgetLifecyclePage> {
+  bool isSelected = false;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -23,15 +24,18 @@ class _StatefulWidgetLifecyclePageState
             InkWell(
               child: ExampleTextWidget(),
               onTap: () {
-                //setState dispara o método didUpdateWidget nos widgets que
-                //são reconstruídos
+                //setState triggers didUpdateWidgets for StatefulWidgets that
+                //belongs to this widget tree
                 setState(() {
                   debugPrint('setState');
+                  isSelected = !isSelected;
                 });
               },
             ),
             const SizedBox(height: 20),
-            const TextField()
+            const TextField(),
+            const SizedBox(height: 20),
+            isSelected == false ? const CounterContainer() : const Text('oi'),
           ],
         ),
       ),
@@ -40,8 +44,8 @@ class _StatefulWidgetLifecyclePageState
 }
 
 class ExampleTextWidget extends StatefulWidget {
-  // const removido para que o DidUpdateWidget funcione, caso
-  // contrário não haverá atualização de widget pois o widget é constante
+  // removed const clause in order to make DidUpdateWidget work, otherwise
+  // there won't be any widget update because it's constant.
   // ignore: prefer_const_constructors_in_immutables
   ExampleTextWidget({
     Key? key,
@@ -56,10 +60,12 @@ class ExampleTextWidget extends StatefulWidget {
 }
 
 class _ExampleTextWidgetState extends State<ExampleTextWidget> {
+  Color? color;
   @override
   void initState() {
     super.initState();
     debugPrint('InitState');
+    //chamada de API
   }
 
   @override
@@ -88,9 +94,45 @@ class _ExampleTextWidgetState extends State<ExampleTextWidget> {
 
   @override
   Widget build(BuildContext context) {
-    debugPrint(
-      'Bottom Padding value: ${MediaQuery.of(context).viewPadding.bottom}',
+    final mediaQuery = MediaQuery.of(context);
+    return Column(
+      children: [
+        Text(
+          'Height: ${mediaQuery.size.height}',
+          style: const TextStyle(fontSize: 30),
+        ),
+        Text(
+          'Bottom Padding: ${mediaQuery.viewPadding.bottom}',
+          style: const TextStyle(fontSize: 30),
+        ),
+      ],
     );
-    return const Text('Example text widget');
+  }
+}
+
+class CounterContainer extends StatefulWidget {
+  const CounterContainer({super.key});
+
+  @override
+  State<CounterContainer> createState() => _CounterContainerState();
+}
+
+class _CounterContainerState extends State<CounterContainer> {
+  int count = 1;
+  @override
+  Widget build(BuildContext context) {
+    return InkWell(
+      onTap: () {
+        setState(() {
+          count = count * 2;
+        });
+      },
+      child: Container(
+        height: 100,
+        width: 100,
+        color: Colors.blue,
+        child: Center(child: Text(count.toString())),
+      ),
+    );
   }
 }
