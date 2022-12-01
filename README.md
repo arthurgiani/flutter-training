@@ -31,6 +31,7 @@ Set of repositories, links and tutorial to be used in training services, from ba
   - [Add your custom font](https://docs.flutter.dev/cookbook/design/fonts)
   - [Navigation between Pages](https://docs.flutter.dev/cookbook/navigation)
   - [How to handle Lists](https://docs.flutter.dev/cookbook/lists)
+  - [JSON serialization](https://docs.flutter.dev/development/data-and-backend/json)
 
 ### Others
   - [What is BuildContext?](https://www.youtube.com/watch?v=ALmd6jLqUK8&t=295s)
